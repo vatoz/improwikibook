@@ -1,0 +1,85 @@
+\documentclass[a4paper,10pt]{book}
+\usepackage[utf8]{inputenc}
+\usepackage[czech]{babel}
+
+\title{ImproWiki}
+\author{wiki.improliga.cz pod licencí Creative Commons Uveďte autora}
+\makeatletter
+\renewcommand\thesection{}
+\renewcommand\thesubsection{}
+\makeatother
+\usepackage[margin=1.6cm]{geometry}
+\usepackage{tgpagella}
+\usepackage[T1]{fontenc}
+\newcommand{\todo}[1]{
+Ve wiki či v převodníku se píše že by se mělo udělat: #1 
+}
+\newcommand{\katabox}[3]{
+ \begin{tabular}[t]{r|l}
+\textbf{Téma} & #1 \\ 
+\textbf{Hráči} & #2 \\
+\textbf{Čas} & #3 \\
+\end{tabular}
+}
+
+\newcommand{\odkaz}[2]{
+\textbf{#1}
+%\footnote{\textbf{#2}, strana \pageref{#2} }
+\textsuperscript{str.~\pageref{#2}}
+} 
+
+
+
+\begin{document}
+\begin{titlepage}
+\maketitle
+\end{titlepage}
+ 
+\chapter{Úvod}\label{úvod}
+
+
+Oproti verzi dostupné na internetu zde chybí odkazy na videa a další internetové zdroje.
+
+Na textech se podíleli Václav Černý, Pavel Žák, Vanda Gabrielová, Vojtěch Kopta a Jan Drahorád
+
+Aktuálnost a užitečnost tištěné verze není zaručena, v případě nejasností konzultujte se zkušenějším hráčem či improwiki.
+
+
+\LaTeX konverzi připravil  Václav Černý. 
+\chapter{Zápas}
+%\label{zápas}
+\input{zapas}
+
+
+\chapter{Zápasové kategorie}\label{zápasové kategorie}
+\textbf{Varování:} Popis kategorí je určen spíše zkušeným hráčům pro připomenutí, než nováčkům na naučení se.  
+\input{kategoriez}
+
+\chapter{Rozcvičky}\label{rozcvičky}
+\input{rozcvicky}
+
+\chapter{Cvičení}\label{cvičení}
+\input{cviceni}
+
+\chapter{Fauly}\label{fauly}
+\input{fauly}
+
+\chapter{Terminologie}\label{terminologie}
+\input{terminologie}
+
+
+\chapter{Příběh}\label{pribeh}
+\input{pribeh}
+
+\chapter{Co se jinam nevešlo}\label{co se jinam nevešlo}
+\input{zbytek}
+\chapter{Todo}
+\todo{infobox kategorie}
+
+\todo{br}
+
+\todo{živé rekvizity - na webu}
+
+\setcounter{tocdepth}{1}
+\tableofcontents
+\end{document}
