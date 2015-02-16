@@ -121,7 +121,7 @@ $articles[trim($a)]=trim($b);
 
 $defz=array(
   'kategoriez'=>"[[Kategorie:Zápasové kategorie]]",
-  //'kategoriei'=>"[[Kategorie:Kategorie na improshow]]",
+  'kategoriei'=>"[[Kategorie:Kategorie na improshow]]",
   "pribeh"=>"{{Fáze příběhu}}",
   "fauly"=>"[[Kategorie:Fauly]]",
   "terminologie"=>"[[Kategorie:Terminologie]]",
@@ -173,8 +173,16 @@ $TRANSPOSE=false;
 unset($data["Kategorie:Krátké formy"]);
 unset($data["Kategorie:Žánry"]);
 unset($data["Kategorie:Cvičení"]);
-
 unset($data["Kategorie:Krátší formy"]);
+$data["books"][]="Literatura";	
+$data["books"][]="Uživatel:Vatoz/Improknihovnička";	
+
+
+$data["authors"][]="Uživatel:VandaGabi";
+$data["authors"][]="Uživatel:Just-paja";	
+$data["authors"][]="Uživatel:Vatoz";	
+$data["authors"][]="Uživatel:VojtechKopta";
+
 
 foreach ($data as $r=>$nonsense){
 	"try ".$r." <br>";

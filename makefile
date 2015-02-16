@@ -1,8 +1,7 @@
 all:
 	php wiki.php
-	pdflatex -interaction=nonstopmode  kniha.tex
-	rm kniha.toc
-	xpdf kniha.pdf
+	- pdflatex -interaction=nonstopmode  kniha.tex
+	- pdflatex -interaction=nonstopmode  kniha.tex
 clean:
 	rm cviceni.tex
 	rm fauly.tex
@@ -16,3 +15,7 @@ clean:
 	rm terminologie.tex
 	rm zapas.tex
 	rm zbytek.tex
+	rm kategoriei.tex
+	rm books.tex
+	rm authors.tex
+
