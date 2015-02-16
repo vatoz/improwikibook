@@ -32,7 +32,15 @@ $lastrow="";
 foreach (explode("\n",$text) as $row){
 $trimrow=trim($row);
 //echo "DEBUG".$trimrow;
-if(substr($trimrow,0,4)=="===="){
+if(preg_match("~^[\*]{0,1}[[:space:]]{0,2}[\[]{0,1}http[s]{0,1}\:~",$trimrow)){
+	//ignore youtube videos and internet hrefs
+}
+elseif(preg_match("~\=\=[[:space:]]{0,2}(Ukázková videa|Videa|Externí odkazy)[[:space:]]{0,2}\=\=~",$trimrow)){
+	//ignore chapters
+}
+
+
+elseif(substr($trimrow,0,4)=="===="){
   echo $lastrow;$lastrow="";
   echo "\subsubsection{".safe(substr($trimrow,4,-4)  )."} \n"; //todo
 
@@ -45,7 +53,9 @@ if(substr($trimrow,0,4)=="===="){
 	  }else{
   echo "\subsubsection{".safe(substr($trimrow,3,-3)  )."} \n";
 }
-}elseif(substr($trimrow,0,2)=="=="){
+}
+
+elseif(substr($trimrow,0,2)=="=="){
   echo $lastrow;$lastrow="";
   if($TRANSPOSE){
   echo "\section{".safe(substr($trimrow,2,-2)  )."} \n";
@@ -64,21 +74,6 @@ elseif(strpos($trimrow,"PŘESMĚRUJ")!==false){
 ob_end_clean();
 
 	return "";
-}
-elseif(strpos($trimrow,"* [http://")===0){
-//ignore
-}
-elseif(strpos($trimrow,"* [https://")===0){
-//ignore
-}
-elseif(strpos($trimrow,"https://")===0){
-//ignore
-}
-elseif(strpos($trimrow,"http://")===0){
-//ignore
-}
-elseif(strpos($trimrow,"* http://")===0){
-//ignore
 }
 elseif(substr($trimrow,0,1)=="#"){
 if($lastrow!= "\\end{enumerate}\n"){
