@@ -35,7 +35,7 @@ $trimrow=trim($row);
 if(preg_match("~^[\*]{0,1}[[:space:]]{0,2}[\[]{0,1}http[s]{0,1}\:~",$trimrow)){
 	//ignore youtube videos and internet hrefs
 }
-elseif(preg_match("~\=\=[[:space:]]{0,2}(Ukázková videa|Videa|Externí odkazy)[[:space:]]{0,2}\=\=~",$trimrow)){
+elseif(preg_match("~\=\=[[:space:]]{0,2}(Ukázková videa|Videa|Externí odkazy|Reference)[[:space:]]{0,2}\=\=~",$trimrow)){
 	//ignore chapters
 }
 
@@ -124,6 +124,8 @@ $defz=array(
   'kategoriei'=>"[[Kategorie:Kategorie na improshow]]",
   "pribeh"=>"{{Fáze příběhu}}",
   "fauly"=>"[[Kategorie:Fauly]]",
+  "postavy"=>"[[Kategorie:Postavy]]",
+  
   "terminologie"=>"[[Kategorie:Terminologie]]",
   "rozcvicky"=>"[[Kategorie:Rozcvičky]]",
   "cviceni"=>"[[Kategorie:Cvičení]]",
@@ -174,10 +176,12 @@ unset($data["Kategorie:Krátké formy"]);
 unset($data["Kategorie:Žánry"]);
 unset($data["Kategorie:Cvičení"]);
 unset($data["Kategorie:Krátší formy"]);
+unset($data["Julyen Hamilton"]);
+unset($data["Nátlak"]);
+
+
 $data["books"][]="Literatura";	
 $data["books"][]="Uživatel:Vatoz/Improknihovnička";	
-
-
 $data["authors"][]="Uživatel:VandaGabi";
 $data["authors"][]="Uživatel:Just-paja";	
 $data["authors"][]="Uživatel:Vatoz";	

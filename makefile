@@ -18,4 +18,4 @@ clean:
 	rm kategoriei.tex
 	rm books.tex
 	rm authors.tex
-
+	rm postavy.tex
