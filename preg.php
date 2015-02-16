@@ -36,6 +36,9 @@ if(isset($a[0])){
 		if($a[3][$index]!==""){
 				$title.=$a[3][$index];
 		}
+		
+		$title=str_replace("_"," ",$title);
+		$href=str_replace("_"," ",$href);
 		$result.="\\odkaz{".$title."}{".strtolower($href)."}";
 		$result.=substr($text,$start+strlen($link));
 		$text=$result;
