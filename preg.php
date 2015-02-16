@@ -11,6 +11,13 @@ return ($results);
 function rep_something($t){
 $t=preg_replace("~'''([[:alnum:][:space:]\/".CZK."]{1,30})'''~",'\\textbf{$1}',$t);
 $t=preg_replace("~\[\[Kategorie:[[:alnum:][:space:]".CZK."]+\]\]~",'',$t);
+
+//todo vylepšit odkaz na titulní stránky kategorií , asi samostatnou fcí.
+$t=preg_replace("~\[\[:Kategorie:([[:alnum:][:space:]".CZK."]+)\|([[:alnum:][:space:]".CZK."]+)\]\]~",'\\textbf{$2}',$t);
+
+
+
+
 //$t=preg_replace("~ ([szvkai]{1,1}) ~",' $1~',$t);
 $t=preg_replace("~\{\{todo\|([[:alnum:][:space:]\/".CZK."]{1,30})\}\}~",'\\todo{$1}',$t);
 $t=preg_replace("~\<br\>~","\n\n",$t);
@@ -52,7 +59,7 @@ return $text;
 
 
 function infoboxkategorie($text){
-	$dta="[\|[\s]{0,10}(cas|hraci|tema)[\s]{0,10}\=[\s]{0,10}([[:alnum:]\,\+\-\s\.\*\(\)".CZK."]*)[\s]{0,10}]*";
+	$dta="[\|[\s]{0,10}(cas|hraci|tema)[\s]{0,10}\=[\s]{0,10}([[:alnum:]\,\+\-\s\:\/\.\*\(\)".CZK."]*)[\s]{0,10}]*";
 preg_match_all("~\{\{[\s]*Kategorie[\s]*".$dta.$dta.$dta."\}\}~",$text,$results);
 
 
