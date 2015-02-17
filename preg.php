@@ -24,6 +24,9 @@ $t=preg_replace("~\<br\>~","\n\n",$t);
 //$t=preg_replace("~\{\{todo\|([[:alnum:][:space:]\/".$czk."]{1,30})\}\}~",'\\todo{$1}',$t);
 
 
+$t=preg_replace("~\<(cite|blockquote)[[:space:]]{0,10}\>~","\begin{quote}",$t);
+
+$t=preg_replace("~\<\/(cite|blockquote)[[:space:]]{0,10}\>~","\\end{quote}",$t);
 return $t;	
 	}
 function rep_link($text){

@@ -102,6 +102,11 @@ $lastrow="\\end{itemize}\n";
 echo $lastrow;
 $result=ob_get_contents();
 ob_end_clean();
+if($title=="Emoce"){
+	$result=preg_replace("~\<div [[:alnum:]\=".'\"'."\-\:\;]{1,120}\>~","\begin{multicols}{3}",$result);
+	$result=preg_replace("~\<\/div\>~","\\end{multicols}",$result);
+}
+
 echo infoboxkategorie($result);
 //echo $result;
 }
@@ -172,12 +177,13 @@ $TRANSPOSE=true;
 PutArrData(array('Zápas'),"zapas.tex");
 $TRANSPOSE=false;
 
-unset($data["Kategorie:Krátké formy"]);
-unset($data["Kategorie:Žánry"]);
-unset($data["Kategorie:Cvičení"]);
-unset($data["Kategorie:Krátší formy"]);
-unset($data["Julyen Hamilton"]);
-unset($data["Nátlak"]);
+
+unset($articles["Kategorie:Krátké formy"]);
+unset($articles["Kategorie:Žánry"]);
+unset($articles["Kategorie:Cvičení"]);
+unset($articles["Kategorie:Krátší formy"]);
+unset($articles["Julyen Hamilton"]);
+unset($articles["Nátlak"]);
 
 
 $data["books"][]="Literatura";	
