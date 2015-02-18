@@ -1,4 +1,4 @@
-\documentclass[a4paper,8pt,openany]{book}
+\documentclass[a4paper,8pt,openany]{memoir}
 \usepackage[utf8]{inputenc}
 \usepackage[czech]{babel}
 
@@ -14,7 +14,9 @@
 
 \usepackage[T1]{fontenc}
 \newcommand{\todo}[1]{
-Ve wiki či v převodníku se píše že by se mělo udělat: #1 
+
+Ve wiki či v převodníku se píše že by se mělo udělat: \textbf{#1} 
+
 }
 \newcommand{\katabox}[3]{
  \begin{tabular}[t]{r|l}
@@ -22,6 +24,12 @@ Ve wiki či v převodníku se píše že by se mělo udělat: #1
 \textbf{Hráči} & #2 \\
 \textbf{Čas} & #3 \\
 \end{tabular}
+}
+
+\newcommand{\obrazek}[2]{
+\textbf{#1}
+#2
+
 }
 
 \newcommand{\odkaz}[2]{
@@ -39,12 +47,17 @@ Ve wiki či v převodníku se píše že by se mělo udělat: #1
  
 \chapter{Úvod}\label{úvod}
 
+\input{uvod} 
 
 Oproti verzi dostupné na internetu zde chybí odkazy na videa a další internetové zdroje.
 
-Na textech se podíleli Václav Černý, Pavel Žák, Vanda Gabrielová, Vojtěch Kopta a Jan Drahorád
+Na textech se podíleli \odkaz{Václav Černý}{uživatel:vatoz}, \odkaz{Pavel Žák}{uživatel:just-paja}, \odkaz{Vanda Gabrielová}{uživatel:vandagabi}, \odkaz{Vojtěch Kopta}{uživatel:vojtechkopta} a Jan Drahorád
 
 Aktuálnost a užitečnost tištěné verze není zaručena, v případě nejasností konzultujte se zkušenějším hráčem či s improwiki.
+
+Tučně vysázená \odkaz{hesla}{úvod} říkají, na které straně se o daném termínu dočtete víc.
+
+Některé \odkaz{termíny}{odkaz nikam nevede} ještě nejsou popsané, přihlašte se na http://wiki.improliga.cz/ a dopište je.
 
 \LaTeX{} konverzi připravil  Václav Černý. 
 \chapter{Zápas}
@@ -56,8 +69,9 @@ Aktuálnost a užitečnost tištěné verze není zaručena, v případě nejasn
 \input{postavy}
 
 
-\chapter{Zápasové kategorie}\label{zápasové kategorie}
-\textbf{Varování:} Popis kategorí je určen spíše zkušeným hráčům pro připomenutí, než nováčkům na naučení se.  
+\chapter{Zápasové kategorie}\label{zápasové kategorie}\label{kategorie}
+\input{kategorie_start}
+\textbf{Varování:} Nikdo se ještě nenaučil improvizovat z knížky. Popis kategorí je určen spíše zkušeným hráčům pro připomenutí, než nováčkům na naučení se.  
 \input{kategoriez}
 
 \chapter{Další kategorie}\label{další kategorie}
@@ -77,7 +91,8 @@ Tyto kategorie bývají hrány na improshow.
 \input{terminologie}
 
 
-\chapter{Příběh}\label{pribeh}
+\chapter{Příběh}\label{příběh}
+\input{pribeh_start}
 \input{pribeh}
 
 \chapter{Knihy}\label{knihy}
@@ -98,6 +113,8 @@ Zatím nedodal svůj medailonek.
 \todo{br}
 \todo{vysílání fm - odkaz}
 \todo{jména uživatelů}
+\todo{Julyen Hamilton}
+\todo{Obrázky}
 \setcounter{tocdepth}{1}
 \tableofcontents
 \end{document}

@@ -4,7 +4,7 @@ define("CZK",
 );
 function preg_mediawiki($text){
 //$text=" [[pokus]]ný [[králík]] [[voda|vodník]]";
-preg_match_all("~\[\[([[:alnum:][:space:]\,\-\(\)\_".CZK."\#]+)([\|]{1,1}[[:alnum:][:space:]\(\)".CZK."]*)*\]\]([[:alnum:]".CZK."]*)~",$text,$results);
+preg_match_all("~\[\[([[:alnum:][:space:]\:\,\-\(\)\_".CZK."\#]+)([\|]{1,1}[[:alnum:][:space:]\(\)".CZK."]*)*\]\]([[:alnum:]".CZK."]*)~",$text,$results);
 //
 return ($results);
 }
@@ -16,6 +16,7 @@ $t=preg_replace("~\[\[Kategorie:[[:alnum:][:space:]".CZK."]+\]\]~",'',$t);
 $t=preg_replace("~\[\[:Kategorie:([[:alnum:][:space:]".CZK."]+)\|([[:alnum:][:space:]".CZK."]+)\]\]~",'\\textbf{$2}',$t);
 
 
+$t=preg_replace("~\[\[Image\:([[:alnum:]\_\-]*)\.png[\|[:alnum:][:space:]".CZK."]*\|([[:alnum:][:space:]".CZK."\,]*)\]\]~",'\\obrazek{$1}{$2}',$t);
 
 
 //$t=preg_replace("~ ([szvkai]{1,1}) ~",' $1~',$t);
@@ -27,6 +28,9 @@ $t=preg_replace("~\<br\>~","\n\n",$t);
 $t=preg_replace("~\<(cite|blockquote)[[:space:]]{0,10}\>~","\begin{quote}",$t);
 
 $t=preg_replace("~\<\/(cite|blockquote)[[:space:]]{0,10}\>~","\\end{quote}",$t);
+
+//$t=preg_replace("~\[\[(Uživatel:[[:alnum:][:space:]\-".CZK."]+)\|([[:alnum:][:space:]".CZK."]+)\]\]~",'\\odkaz{$1}{$2}',$t);
+
 return $t;	
 	}
 function rep_link($text){

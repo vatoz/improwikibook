@@ -27,7 +27,6 @@ function MediaWiki2Latex($title,$text){
 	ob_start();
 if (!$TRANSPOSE) echo "\section{".safe($title)."} \n";
 echo "\label{".safe(strtolower($title))."} \n";
-
 $lastrow="";
 foreach (explode("\n",$text) as $row){
 $trimrow=trim($row);
@@ -175,6 +174,10 @@ echo "File: ".$file." saved\n";
 
 $TRANSPOSE=true;	
 PutArrData(array('Zápas'),"zapas.tex");
+PutArrData(array('ImproWiki'),"uvod.tex");
+PutArrData(array('Kategorie'),"kategorie_start.tex");
+PutArrData(array('Příběh'),"pribeh_start.tex");
+
 $TRANSPOSE=false;
 
 
@@ -184,6 +187,7 @@ unset($articles["Kategorie:Cvičení"]);
 unset($articles["Kategorie:Krátší formy"]);
 unset($articles["Julyen Hamilton"]);
 unset($articles["Nátlak"]);
+unset($articles["Hlavní strana"]);
 
 
 $data["books"][]="Literatura";	
