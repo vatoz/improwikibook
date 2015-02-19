@@ -26,7 +26,7 @@ function MediaWiki2Latex($title,$text){
 	global $TRANSPOSE;
 	ob_start();
 if (!$TRANSPOSE) echo "\section{".safe($title)."} \n";
-echo "\label{".safe(strtolower($title))."} \n";
+echo "\label{".safe(mb_strtolower($title,"UTF-8"))."} \n";
 $lastrow="";
 foreach (explode("\n",$text) as $row){
 $trimrow=trim($row);
@@ -175,8 +175,10 @@ echo "File: ".$file." saved\n";
 $TRANSPOSE=true;	
 PutArrData(array('Zápas'),"zapas.tex");
 PutArrData(array('ImproWiki'),"uvod.tex");
-PutArrData(array('Kategorie'),"kategorie_start.tex");
+PutArrData(array('Kategorie','Kategorie:Zápasové kategorie'),"kategorie_start.tex");
 PutArrData(array('Příběh'),"pribeh_start.tex");
+PutArrData(array('Kategorie:Fauly'),"fauly_start.tex");
+PutArrData(array('Kategorie:Rozcvičky'),"rozcvicky_start.tex");
 
 $TRANSPOSE=false;
 
@@ -184,14 +186,24 @@ $TRANSPOSE=false;
 unset($articles["Kategorie:Krátké formy"]);
 unset($articles["Kategorie:Žánry"]);
 unset($articles["Kategorie:Cvičení"]);
-unset($articles["Kategorie:Krátší formy"]);
+unset($articles["Kategorie:Cvičení na rytmus"]);
+unset($articles["Kategorie:Cvičení na fyzický kontakt"]);
+unset($articles["Kategorie:Rozehřívačky"]);
+unset($articles["Kategorie:Kratší formy"]);
+unset($articles["Kategorie:Seznam kategorií"]);
+unset($articles["Kategorie:Delší formy"]);
+unset($articles["Kategorie:Formy"]);
+unset($articles["Kategorie:Zpívané kategorie"]);
+unset($articles["Kategorie:Terminologie"]);
+unset($articles["Kategorie:Kategorie na improshow"]);
+
 unset($articles["Julyen Hamilton"]);
 unset($articles["Nátlak"]);
 unset($articles["Hlavní strana"]);
 
 
 $data["books"][]="Literatura";	
-$data["books"][]="Uživatel:Vatoz/Improknihovnička";	
+$data["books"][]="Improknihovnička";	
 $data["authors"][]="Uživatel:VandaGabi";
 $data["authors"][]="Uživatel:Just-paja";	
 $data["authors"][]="Uživatel:Vatoz";	

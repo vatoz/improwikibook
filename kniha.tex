@@ -1,7 +1,7 @@
-\documentclass[a4paper,8pt,openany]{book}
+\documentclass[a4paper,10pt,openany]{book}
 \usepackage[utf8]{inputenc}
 \usepackage[czech]{babel}
-
+\usepackage{graphicx}
 \title{ImproWiki}
 \author{wiki.improliga.cz pod licencí Creative Commons Uveďte autora}
 \makeatletter
@@ -27,17 +27,18 @@ Ve wiki či v převodníku se píše že by se mělo udělat: \textbf{#1}
 }
 
 \newcommand{\obrazek}[2]{
-\textbf{#1}
-#2
+\begin{figure}[p]
+    \centering
+    \includegraphics[width=3cm]{#1}
+    \caption{#2}   
+\end{figure}
+
 
 }
 
-\newcommand{\odkaz}[2]{
-\textbf{#1}
-%\footnote{\textbf{#2}, strana \pageref{#2} }
-\textsuperscript{s.~\pageref{#2}}
-} 
+\newcommand{\odkaz}[2]{\textbf{#1}\textsuperscript{s.~\pageref{#2}}} 
 
+%\footnote{\textbf{#2}, strana \pageref{#2} }
 
 
 \begin{document}
@@ -57,7 +58,7 @@ Aktuálnost a užitečnost tištěné verze není zaručena, v případě nejasn
 
 Tučně vysázená \odkaz{hesla}{úvod} říkají, na které straně se o daném termínu dočtete víc.
 
-Některé \odkaz{termíny}{odkaz nikam nevede} ještě nejsou popsané, přihlašte se na http://wiki.improliga.cz/ a dopište je.
+Některé termíny ještě nejsou popsané, přihlašte se na http://wiki.improliga.cz/ a dopište je.
 
 \LaTeX{} konverzi připravil  Václav Černý. 
 \chapter{Zápas}
@@ -71,7 +72,6 @@ Některé \odkaz{termíny}{odkaz nikam nevede} ještě nejsou popsané, přihla�
 
 \chapter{Zápasové kategorie}
 \label{zápasové kategorie}
-\label{kategorie}
 \label{:kategorie:zápasové kategorie}
 \input{kategorie_start}
 \textbf{Varování:} Nikdo se ještě nenaučil improvizovat z knížky. Popis kategorí je určen spíše zkušeným hráčům pro připomenutí, než nováčkům na naučení se.  
@@ -83,12 +83,14 @@ Tyto kategorie bývají hrány na improshow.
 \input{kategoriei}
 
 \chapter{Rozcvičky}\label{rozcvičky}
+\input{rozcvicky_start}
 \input{rozcvicky}
 
 \chapter{Cvičení}\label{cvičení}
 \input{cviceni}
 
 \chapter{Fauly}\label{fauly}
+\input{fauly_start}
 \input{fauly}
 
 \chapter{Terminologie}\label{terminologie}
@@ -121,6 +123,7 @@ Zatím nedodal svůj medailonek.
 \todo{Julyen Hamilton}
 \todo{Obrázky}
 \todo{PHP fce strtolower nemění Š  a asi ani další odiakritikovaná slova 
+\label{:kategorie:žánry}
 }
 \setcounter{tocdepth}{1}
 \tableofcontents
