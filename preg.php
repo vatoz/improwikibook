@@ -4,7 +4,7 @@ define("CZK",
 );
 function preg_mediawiki($text){
 //$text=" [[pokus]]ný [[králík]] [[voda|vodník]]";
-preg_match_all("~\[[\[]{0,1}([[:alnum:][:space:]\:\,\/\.\-\(\)\_".CZK."\#]+)([\|]{1,1}[[:alnum:][:space:]\(\)".CZK."]*)*\][\]]{0,1}([[:alnum:]".CZK."]*)~",$text,$results);
+preg_match_all("~\[[\[]{0,1}([[:alnum:][:space:]\,\/\.\-\(\)\:\_".CZK."\#]+)([\|]{1,1}[[:alnum:][:space:]\(\)".CZK."]*){0,1}\][\]]{0,1}([[:alnum:]".CZK."]*)~",$text,$results);
 //
 return ($results);
 }
@@ -33,7 +33,7 @@ $t=preg_replace("~\<br\>~","\n\n",$t);
 $t=preg_replace("~\<(cite|blockquote)[[:space:]]{0,10}\>~","\begin{quote}",$t);
 
 $t=preg_replace("~\<\/(cite|blockquote)[[:space:]]{0,10}\>~","\\end{quote}",$t);
-$t=preg_replace("~\<\/(references)[[:space:]]{0,10}\/\>~"," ",$t);
+$t=preg_replace("~\<(references)[[:space:]]{0,10}\/\>~"," ",$t);
 //$t=preg_rplace("~\[\[(Uživatel:[[:alnum:][:space:]\-".CZK."]+)\|([[:alnum:][:space:]".CZK."]+)\]\]~",'\\odkaz{$1}{$2}',$t);
 
 return $t;	
@@ -60,20 +60,23 @@ if(isset($a[0])){
 		$href=str_replace("_"," ",$href);
 		if(strpos($href,":")!==false){
 			if(str_starts($href,"Uživatel:")){
-					$result.="\\odkaz{".$title."}{".strtolower($href)."}";
+					$result.="\\odkaz{".$title."}{".mb_strtolower($href,"UTF-8")."}";
 				}elseif(str_starts($href,"Kategorie:")){
+					
 					//ignore
-				}elseif(str_starts($href,"http")){
+				}elseif(str_starts($href,":")){
+					$result.="\\odkaz{".$title."}{".mb_strtolower($href,"UTF-8")."}";
+				}elseif(str_starts($href,"http")){//todo protože : nemůžu zpracovávat v hlavním bloku
 					$s=strpos($href," ");
 					$result.="\\textbf{".substr($href,$s+1)."}";
 					//odebrán http odkaz
 			    }else{
-					$result.="\\odkaz{".$title."}{".strtolower($href)."}";
+					$result.="\\odkaz{".$title."}{".mb_strtolower($href,"UTF-8")."}";
 					
 					}
 			
 		}else{
-			$result.="\\odkaz{".$title."}{".strtolower($href)."}";
+			$result.="\\odkaz{".$title."}{".mb_strtolower($href,"UTF-8")."}";
 			
 		}
 		$result.=substr($text,$start+strlen($link));

@@ -1,7 +1,8 @@
-\documentclass[a4paper,10pt,openany]{book}
+\documentclass[a5paper,10pt,openany]{book}
 \usepackage[utf8]{inputenc}
 \usepackage[czech]{babel}
 \usepackage{graphicx}
+\usepackage{wrapfig}
 \title{ImproWiki}
 \author{wiki.improliga.cz pod licencí Creative Commons Uveďte autora}
 \makeatletter
@@ -19,19 +20,22 @@ Ve wiki či v převodníku se píše že by se mělo udělat: \textbf{#1}
 
 }
 \newcommand{\katabox}[3]{
- \begin{tabular}[t]{r|l}
-\textbf{Téma} & #1 \\ 
-\textbf{Hráči} & #2 \\
-\textbf{Čas} & #3 \\
+\begin{wrapfigure}{R}{5.3cm}
+ \begin{tabular}[t]{r|p{4cm}}
+\textbf{Téma}&\p{ #1} \\ 
+\textbf{Hráči}&\p{ #2} \\
+\textbf{Čas}&\p{#3} \\
 \end{tabular}
+\end{wrapfigure}
 }
 
 \newcommand{\obrazek}[2]{
-\begin{figure}[p]
-    \centering
-    \includegraphics[width=3cm]{#1}
-    \caption{#2}   
-\end{figure}
+\begin{wrapfigure}{r}{5cm}
+\begin{center}
+\includegraphics[width=3cm]{#1}
+\end{center}
+#2
+\end{wrapfigure}
 
 
 }

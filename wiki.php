@@ -196,6 +196,7 @@ unset($articles["Kategorie:Formy"]);
 unset($articles["Kategorie:Zpívané kategorie"]);
 unset($articles["Kategorie:Terminologie"]);
 unset($articles["Kategorie:Kategorie na improshow"]);
+unset($articles["Kategorie:Porovnávací kategorie"]);
 
 unset($articles["Julyen Hamilton"]);
 unset($articles["Nátlak"]);
