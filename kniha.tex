@@ -1,4 +1,4 @@
-\documentclass[a4paper,8pt,openany]{memoir}
+\documentclass[a4paper,8pt,openany]{book}
 \usepackage[utf8]{inputenc}
 \usepackage[czech]{babel}
 
@@ -69,12 +69,16 @@ Některé \odkaz{termíny}{odkaz nikam nevede} ještě nejsou popsané, přihla�
 \input{postavy}
 
 
-\chapter{Zápasové kategorie}\label{zápasové kategorie}\label{kategorie}
+\chapter{Zápasové kategorie}
+\label{zápasové kategorie}
+\label{kategorie}
+\label{:kategorie:zápasové kategorie}
 \input{kategorie_start}
 \textbf{Varování:} Nikdo se ještě nenaučil improvizovat z knížky. Popis kategorí je určen spíše zkušeným hráčům pro připomenutí, než nováčkům na naučení se.  
 \input{kategoriez}
 
 \chapter{Další kategorie}\label{další kategorie}
+\label{:kategorie:kategorie na improshow}
 Tyto kategorie bývají hrány na improshow.
 \input{kategoriei}
 
@@ -88,6 +92,7 @@ Tyto kategorie bývají hrány na improshow.
 \input{fauly}
 
 \chapter{Terminologie}\label{terminologie}
+\label{:kategorie:terminologie}
 \input{terminologie}
 
 
@@ -115,6 +120,8 @@ Zatím nedodal svůj medailonek.
 \todo{jména uživatelů}
 \todo{Julyen Hamilton}
 \todo{Obrázky}
+\todo{PHP fce strtolower nemění Š  a asi ani další odiakritikovaná slova 
+}
 \setcounter{tocdepth}{1}
 \tableofcontents
 \end{document}

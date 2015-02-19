@@ -4,10 +4,15 @@ define("CZK",
 );
 function preg_mediawiki($text){
 //$text=" [[pokus]]ný [[králík]] [[voda|vodník]]";
-preg_match_all("~\[\[([[:alnum:][:space:]\:\,\-\(\)\_".CZK."\#]+)([\|]{1,1}[[:alnum:][:space:]\(\)".CZK."]*)*\]\]([[:alnum:]".CZK."]*)~",$text,$results);
+preg_match_all("~\[[\[]{0,1}([[:alnum:][:space:]\:\,\/\.\-\(\)\_".CZK."\#]+)([\|]{1,1}[[:alnum:][:space:]\(\)".CZK."]*)*\][\]]{0,1}([[:alnum:]".CZK."]*)~",$text,$results);
 //
 return ($results);
 }
+function str_starts($haystack,$needle){
+	return substr($haystack,0,strlen($needle))==$needle;
+			
+	
+	}
 function rep_something($t){
 $t=preg_replace("~'''([[:alnum:][:space:]\/".CZK."]{1,30})'''~",'\\textbf{$1}',$t);
 $t=preg_replace("~\[\[Kategorie:[[:alnum:][:space:]".CZK."]+\]\]~",'',$t);
@@ -28,8 +33,8 @@ $t=preg_replace("~\<br\>~","\n\n",$t);
 $t=preg_replace("~\<(cite|blockquote)[[:space:]]{0,10}\>~","\begin{quote}",$t);
 
 $t=preg_replace("~\<\/(cite|blockquote)[[:space:]]{0,10}\>~","\\end{quote}",$t);
-
-//$t=preg_replace("~\[\[(Uživatel:[[:alnum:][:space:]\-".CZK."]+)\|([[:alnum:][:space:]".CZK."]+)\]\]~",'\\odkaz{$1}{$2}',$t);
+$t=preg_replace("~\<\/(references)[[:space:]]{0,10}\/\>~"," ",$t);
+//$t=preg_rplace("~\[\[(Uživatel:[[:alnum:][:space:]\-".CZK."]+)\|([[:alnum:][:space:]".CZK."]+)\]\]~",'\\odkaz{$1}{$2}',$t);
 
 return $t;	
 	}
@@ -53,7 +58,24 @@ if(isset($a[0])){
 		
 		$title=str_replace("_"," ",$title);
 		$href=str_replace("_"," ",$href);
-		$result.="\\odkaz{".$title."}{".strtolower($href)."}";
+		if(strpos($href,":")!==false){
+			if(str_starts($href,"Uživatel:")){
+					$result.="\\odkaz{".$title."}{".strtolower($href)."}";
+				}elseif(str_starts($href,"Kategorie:")){
+					//ignore
+				}elseif(str_starts($href,"http")){
+					$s=strpos($href," ");
+					$result.="\\textbf{".substr($href,$s+1)."}";
+					//odebrán http odkaz
+			    }else{
+					$result.="\\odkaz{".$title."}{".strtolower($href)."}";
+					
+					}
+			
+		}else{
+			$result.="\\odkaz{".$title."}{".strtolower($href)."}";
+			
+		}
 		$result.=substr($text,$start+strlen($link));
 		$text=$result;
     }
