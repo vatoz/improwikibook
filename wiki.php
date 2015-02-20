@@ -211,7 +211,8 @@ PutArrData(array_keys($articles),"zbytek.tex");
 
 ksort($kategorie_boxtable,SORT_LOCALE_STRING);
 ob_start();
-echo "\begin{tabular}[t]{t{4cm}|r|t[5cm]|t{5cm}|t{5cm}}\n";
+echo "\begin{tabular}[t]{t|r|t|t|t}\n";
+echo "Název&str.&čas&hráči&téma\\\\ \n";
 foreach($kategorie_boxtable as $Key=>$Row){
 echo "";
 if(in_array($Key,$zapas)) {
@@ -220,7 +221,7 @@ if(in_array($Key,$zapas)) {
 	echo "".$Key."";
 }
 echo " & \pageref{".mb_strtolower($Key,"UTF-8") ."} &";
-echo $Row["cas"]."&".$Row["hraci"]."&". $Row["tema"]."\\\\  \n";
+echo $Row["cas"]."&".$Row["hraci"]."&". $Row["tema"]."\\\\  \n\n";
 	
 }
 echo "\\end{tabular}";
