@@ -106,7 +106,7 @@ if($title=="Emoce"){
 	$result=preg_replace("~\<\/div\>~","\\end{multicols}",$result);
 }
 
-echo infoboxkategorie($result);
+echo infoboxkategorie($result,$title);
 //echo $result;
 }
 
@@ -197,6 +197,7 @@ $data["authors"][]="Uživatel:Just-paja";
 $data["authors"][]="Uživatel:Vatoz";	
 $data["authors"][]="Uživatel:VojtechKopta";
 
+$zapas=$data["kategoriez"];	
 
 foreach ($data as $r=>$nonsense){
 	"try ".$r." <br>";
@@ -207,3 +208,23 @@ foreach ($data as $r=>$nonsense){
 
 //var_export(array_keys($articles));
 PutArrData(array_keys($articles),"zbytek.tex");
+
+ksort($kategorie_boxtable,SORT_LOCALE_STRING);
+ob_start();
+echo "\begin{tabular}[t]{t{4cm}|r|t[5cm]|t{5cm}|t{5cm}}\n";
+foreach($kategorie_boxtable as $Key=>$Row){
+echo "";
+if(in_array($Key,$zapas)) {
+	echo "\\textbf{".$Key."}";
+}else{
+	echo "".$Key."";
+}
+echo " & \pageref{".mb_strtolower($Key,"UTF-8") ."} &";
+echo $Row["cas"]."&".$Row["hraci"]."&". $Row["tema"]."\\\\  \n";
+	
+}
+echo "\\end{tabular}";
+file_put_contents("boxtable.tex",ob_get_contents());
+ob_end_clean();
+echo "Saved boxtable.tex";
+

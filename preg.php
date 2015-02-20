@@ -85,9 +85,9 @@ return $text;
 
 	
 }
+$kategorie_boxtable=array();
 
-
-function infoboxkategorie($text){
+function infoboxkategorie($text,$kategorie){
 	$dta="[\|[\s]{0,10}(cas|hraci|tema)[\s]{0,10}\=[\s]{0,10}([[:alnum:]\,\+\-\s\:\/\.\*\(\)".CZK."]*)[\s]{0,10}]*";
 preg_match_all("~\{\{[\s]*Kategorie[\s]*".$dta.$dta.$dta."\}\}~",$text,$results);
 
@@ -100,9 +100,14 @@ if(isset($results[0])){
 		$d[$results[1][$index]]=trim($results[2][$index]);
 		$d[$results[3][$index]]=trim($results[4][$index]);
 		$d[$results[5][$index]]=trim($results[6][$index]);
+		$d["kategorie"]=$kategorie;
+		global $kategorie_boxtable;
+		$kategorie_boxtable[$kategorie]=$d;
 		$result.="\\katabox{".$d["tema"]."}{".$d["hraci"]."}{".$d["cas"]."}";
 		$result.=substr($text,$start+strlen($results[0][$index]));
 		$text=$result;
+		
+		
     }
 	
 	}
@@ -111,18 +116,3 @@ if(isset($results[0])){
 
 	return $text;
 	}
-
-
-echo rep_link(" [[pokus]]ný [[králík]] [[voda|vodník]]");
-echo rep_link(" otlivé [[hráč]]e v [[tým]]ech a představ");
-var_export (infoboxkategorie("{{Kategorie
-|hraci=neomezeně
-|tema=Problém pro každého hráče
-|cas=neomezeně}}
-
-{{Kategorie
-|hraci=neomsssezeně
-|tema=Problém ssspro každého hráče
-|cas=neomezensssě}}
-
-"));
