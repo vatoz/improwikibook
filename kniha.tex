@@ -1,8 +1,9 @@
-\documentclass[a5paper,10pt,openany]{book}
+\documentclass[a4paper,10pt,openany]{book}
 \usepackage[utf8]{inputenc}
 \usepackage[czech]{babel}
 \usepackage{graphicx}
 \usepackage{wrapfig}
+\usepackage{longtable}
 \title{ImproWiki}
 \author{wiki.improliga.cz pod licencí Creative Commons Uveďte autora}
 \makeatletter
@@ -19,15 +20,13 @@
 Ve wiki či v převodníku se píše že by se mělo udělat: \textbf{#1} 
 
 }
-\newcommand{\katabox}[3]{
-\begin{wrapfigure}{R}{5.3cm}
+\newcommand{\katabox}[3]{\begin{wrapfigure}{R}{5.3cm}
  \begin{tabular}[t]{r|p{4cm}}
 \textbf{Téma}&\p{ #1} \\ 
 \textbf{Hráči}&\p{ #2} \\
 \textbf{Čas}&\p{#3} \\
 \end{tabular}
-\end{wrapfigure}
-}
+\end{wrapfigure}}
 
 \newcommand{\obrazek}[2]{
 \begin{wrapfigure}{r}{5cm}
@@ -44,7 +43,8 @@ Ve wiki či v převodníku se píše že by se mělo udělat: \textbf{#1}
 
 %\footnote{\textbf{#2}, strana \pageref{#2} }
 
-
+\clubpenalty 10000
+\widowpenalty 10000
 \begin{document}
 \begin{titlepage}
 \maketitle

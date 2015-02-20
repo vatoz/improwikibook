@@ -25,8 +25,8 @@ return $t;
 function MediaWiki2Latex($title,$text){
 	global $TRANSPOSE;
 	ob_start();
-if (!$TRANSPOSE) echo "\section{".safe($title)."} \n";
-echo "\label{".safe(mb_strtolower($title,"UTF-8"))."} \n";
+if (!$TRANSPOSE) echo "\section{".safe($title)."} ";
+echo "\label{".safe(mb_strtolower($title,"UTF-8"))."} ";
 $lastrow="";
 foreach (explode("\n",$text) as $row){
 $trimrow=trim($row);
@@ -41,25 +41,25 @@ elseif(preg_match("~\=\=[[:space:]]{0,2}(Ukázková videa|Videa|Externí odkazy|
 
 elseif(substr($trimrow,0,4)=="===="){
   echo $lastrow;$lastrow="";
-  echo "\subsubsection{".safe(substr($trimrow,4,-4)  )."} \n"; //todo
+  echo "\subsubsection{".safe(substr($trimrow,4,-4)  )."} "; //todo
 
 }elseif(substr($trimrow,0,3)=="==="){
   echo $lastrow;$lastrow="";
   if($TRANSPOSE){
-	  echo "\subsection{".safe(substr($trimrow,3,-3)  )."} \n";
+	  echo "\subsection{".safe(substr($trimrow,3,-3)  )."} ";
 
 	  
 	  }else{
-  echo "\subsubsection{".safe(substr($trimrow,3,-3)  )."} \n";
+  echo "\subsubsection{".safe(substr($trimrow,3,-3)  )."} ";
 }
 }
 
 elseif(substr($trimrow,0,2)=="=="){
   echo $lastrow;$lastrow="";
   if($TRANSPOSE){
-  echo "\section{".safe(substr($trimrow,2,-2)  )."} \n";
+  echo "\section{".safe(substr($trimrow,2,-2)  )."} ";
 	}else{
-	echo "\subsection{".safe(substr($trimrow,2,-2)  )."} \n";
+	echo "\subsection{".safe(substr($trimrow,2,-2)  )."} ";
 		
 		
 		}}
@@ -224,8 +224,8 @@ PutArrData(array_keys($articles),"zbytek.tex");
 
 ksort($kategorie_boxtable,SORT_LOCALE_STRING);
 ob_start();
-echo "\begin{tabular}[t]{t|r|t|t|t}\n";
-echo "Název&str.&čas&hráči&téma\\\\ \n";
+echo "\begin{longtable}{|p{4cm}|p{.4cm}|p{3.2cm}|p{3cm}|p{4.2cm}|} \n";
+echo "Název&str.&čas&hráči&téma \hline \n";
 foreach($kategorie_boxtable as $Key=>$Row){
 echo "";
 if(in_array($Key,$zapas)) {
@@ -233,11 +233,11 @@ if(in_array($Key,$zapas)) {
 }else{
 	echo "".$Key."";
 }
-echo " & \pageref{".mb_strtolower($Key,"UTF-8") ."} &";
-echo $Row["cas"]."&".$Row["hraci"]."&". $Row["tema"]."\\\\  \n\n";
+echo " & \pageref{".mb_strtolower($Key,"UTF-8") ."} & ";
+echo $Row["cas"]." & ".$Row["hraci"]." & ". $Row["tema"]."\\\\  \n\n";
 	
 }
-echo "\\end{tabular}";
+echo "\\end{longtable}";
 file_put_contents("boxtable.tex",ob_get_contents());
 ob_end_clean();
 echo "Saved boxtable.tex";
