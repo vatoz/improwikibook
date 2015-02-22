@@ -179,6 +179,7 @@ PutArrData(array('Kategorie','Kategorie:Zápasové kategorie'),"kategorie_start.
 PutArrData(array('Příběh'),"pribeh_start.tex");
 PutArrData(array('Kategorie:Fauly'),"fauly_start.tex");
 PutArrData(array('Kategorie:Rozcvičky'),"rozcvicky_start.tex");
+PutArrData(array('Předzápasový trénink'),"predzapasovy.tex");
 
 $TRANSPOSE=false;
 
@@ -211,6 +212,9 @@ $data["authors"][]="Uživatel:Vatoz";
 $data["authors"][]="Uživatel:VojtechKopta";
 
 $zapas=$data["kategoriez"];	
+
+
+$data['pribeh']=array("Expozice","Kolize","Krize","Peripetie","Katastrofa","Katarze"); //Custom řazení
 
 foreach ($data as $r=>$nonsense){
 	"try ".$r." <br>";
