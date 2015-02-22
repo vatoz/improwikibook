@@ -113,6 +113,8 @@ echo infoboxkategorie($result,$title);
 }
 
 
+if (!file_exists("wiki.xml")) include "xml.php";
+
 
 $a= simplexml_load_file("wiki.xml"); 
 
