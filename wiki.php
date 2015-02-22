@@ -7,6 +7,8 @@
 <pre>
 <?php
 setlocale(LC_ALL,"cs_CZ.UTF8");
+$links=explode("\n",file_get_contents("clanky.txt"));//viz xml.php
+
 include "preg.php";
 $TRANSPOSE=false;
 function safe($t){
@@ -119,6 +121,8 @@ echo "simple _done ";
 function atoa($a,$b){
 global $articles;
 $articles[trim($a)]=trim($b);
+global $links;
+$links[]=trim($a);
 }
 
 
@@ -244,5 +248,12 @@ echo $Row["cas"]." & ".$Row["hraci"]." & ". $Row["tema"]."\\\\  \n\n";
 echo "\\end{longtable}";
 file_put_contents("boxtable.tex",ob_get_contents());
 ob_end_clean();
-echo "Saved boxtable.tex";
+echo "Saved boxtable.tex\n";
+
+$links=array_unique($links);
+asort($links,SORT_LOCALE_STRING);
+
+file_put_contents("clanky.txt",implode("\n",$links));
+echo "Saved clanky.txt\n";
+
 

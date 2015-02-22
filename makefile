@@ -19,3 +19,7 @@ clean:
 	rm books.tex
 	rm authors.tex
 	rm postavy.tex
+	
+xml:
+	rm wiki.xml
+	php xml.php

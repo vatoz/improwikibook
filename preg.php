@@ -38,6 +38,9 @@ $t=preg_replace("~\<(references)[[:space:]]{0,10}\/\>~"," ",$t);
 
 return $t;	
 	}
+	
+
+	
 function rep_link($text){
 $a=preg_mediawiki($text);
 if(isset($a[0])){
@@ -72,11 +75,14 @@ if(isset($a[0])){
 					//odebrán http odkaz
 			    }else{
 					$result.="\\odkaz{".$title."}{".mb_strtolower($href,"UTF-8")."}";
-					
+					global $links;
+					$links[]=$href;
 					}
 			
 		}else{
 			$result.="\\odkaz{".$title."}{".mb_strtolower($href,"UTF-8")."}";
+			global $links;
+					$links[]=$href;
 			
 		}
 		$result.=substr($text,$start+strlen($link));
