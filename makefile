@@ -2,6 +2,7 @@ all:
 	php wiki.php
 	- pdflatex -interaction=nonstopmode  kniha.tex
 	- pdflatex -interaction=nonstopmode  kniha.tex
+	- pdflatex -interaction=nonstopmode  kniha.tex
 clean:
 	rm cviceni.tex
 	rm fauly.tex
@@ -21,5 +22,5 @@ clean:
 	rm postavy.tex
 	
 xml:
-	rm wiki.xml
+	-rm wiki.xml
 	php xml.php
