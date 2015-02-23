@@ -235,20 +235,16 @@ PutArrData(array_keys($articles),"zbytek.tex");
 
 ksort($kategorie_boxtable,SORT_LOCALE_STRING);
 ob_start();
-echo "\begin{longtable}{|p{4cm}|p{.4cm}|p{3.2cm}|p{3cm}|p{4.2cm}|} \n";
-echo "Název&str.&čas&hráči&téma \hline \n";
 foreach($kategorie_boxtable as $Key=>$Row){
-echo "";
-if(in_array($Key,$zapas)) {
-	echo "\\textbf{".$Key."}";
-}else{
-	echo "".$Key."";
-}
-echo " & \pageref{".mb_strtolower($Key,"UTF-8") ."} & ";
-echo $Row["cas"]." & ".$Row["hraci"]." & ". $Row["tema"]."\\\\  \n\n";
+	echo "\\btbinfo{".$Key."}{".
+	mb_strtolower($Key,"UTF-8") ."}{".
+	$Row["cas"]."}{".
+	$Row["hraci"]."}{".
+	$Row["tema"]."}{".
+	(in_array($Key,$zapas)?"Z":"I")
+	."}\n";
 	
 }
-echo "\\end{longtable}";
 file_put_contents("boxtable.tex",ob_get_contents());
 ob_end_clean();
 echo "Saved boxtable.tex\n";

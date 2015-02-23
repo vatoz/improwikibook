@@ -73,11 +73,7 @@ Některé termíny ještě nejsou popsané, přihlašte se na http://wiki.improl
 
 
 
-\chapter{Přehled kategorií}
-Tučně uvedené kategorie jsou zápasové kategorie.
 
-%\label{zápas}
-\input{boxtable}
 
 
 \chapter{Postavy}
@@ -117,7 +113,6 @@ Tyto kategorie bývají hrány na improshow.
 \label{:kategorie:terminologie}
 \input{terminologie}
 
-
 \chapter{Příběh}\label{příběh}
 \input{pribeh_start}
 \input{pribeh}
@@ -140,9 +135,61 @@ Zatím nedodal svůj medailonek.
 \todo{br}
 \todo{vysílání fm - odkaz}
 \todo{jména uživatelů}
-\todo{Julyen Hamilton}
 \todo{Obrázky}
 }
+
+\chapter{Bonusy}
+Věci zde jsou generované z wiki.
+\todo{tady nechci mít číslování stránek}
+\pagebreak
+\newcommand{\btbinfo}[6]{
+
+\ifx Z#6 \textbf{#1} \else #1 \small{  (i)} \fi  & #6 & \pageref{#2} &  \small{#3} & \small{#4} & \small{#5}\hline
+} 
+\begin{longtable}{p{4cm}|p{6mm}|p{.4cm}|p{3.2cm}|p{3cm}|p{4.2cm}|}
+Název&Z&str.&čas&hráči&téma \hline 
+\input{boxtable}
+\end{longtable}
+\pagebreak
+
+\renewcommand{\btbinfo}[6]{
+\ifx Z#6 \large{#1}   \fi
+
+} 
+
+
+
+\begin{multicols}{2}
+
+ \begin{tabular}[t]{p{4cm}||p{4cm}}
+\large{Zápas} \\
+
+Rozhodčí:  & Konferenciér: \\
+Pomocňáci:    \\
+Hudba: & Světla: \\
+Tým: &  Tým\\
+1. \small{(cpt)}  & 1.\small{(cpt)} \\
+2.  & 2. \\
+3. & 3. \\
+4.  & 4. \\
+Body:  & Body: \\
+
+
+\end{tabular}
+
+
+\input{boxtable}
+\end {multicols}
+
+\renewcommand{\btbinfo}[6]{
+\ifx Z#6  \else \large{#1}  \fi
+
+}
+\begin{multicols}{2}
+\input{boxtable}
+\end {multicols}
+
+
 \setcounter{tocdepth}{1}
 \tableofcontents
 \end{document}
