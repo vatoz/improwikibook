@@ -220,7 +220,8 @@ $data["authors"][]="Uživatel:VojtechKopta";
 $zapas=$data["kategoriez"];	
 
 
-$data['pribeh']=array("Expozice","Kolize","Krize","Peripetie","Katastrofa","Katarze"); //Custom řazení
+PutArrData (array("Expozice","Kolize","Krize","Peripetie","Katastrofa","Katarze"),"pribeh.tex"); //Custom řazení
+unset($data["pribeh"]);
 
 foreach ($data as $r=>$nonsense){
 	"try ".$r." <br>";
