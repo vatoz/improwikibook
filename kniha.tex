@@ -29,15 +29,9 @@ Ve wiki či v převodníku se píše že by se mělo udělat: \textbf{#1}
 \end{wrapfigure}}
 
 \newcommand{\obrazek}[2]{
-\begin{wrapfigure}{r}{5cm}
-\begin{center}
-\includegraphics[width=3cm]{#1}
-\end{center}
-#2
-\end{wrapfigure}
+\includegraphics[width=4cm]{#1}
 
-
-}
+\textbf{#2}}
 
 \newcommand{\odkaz}[2]{\textbf{#1}\textsuperscript{s.~\pageref{#2}}} 
 
@@ -66,7 +60,7 @@ Některé termíny ještě nejsou popsané, přihlašte se na http://wiki.improl
 
 \textbf{Varování:} Nikdo se ještě nenaučil improvizovat z knížky. Popis kategorí je určen spíše zkušeným hráčům pro připomenutí, než nováčkům na naučení se.  
 
-\LaTeX{} konverzi připravil  Václav Černý. 
+\LaTeX{} konverzi připravil  Václav Černý, chyby konverze hlaste např na github.com/vatoz/improwiki
 \chapter{Zápas}
 %\label{zápas}
 \input{zapas}
@@ -132,10 +126,8 @@ Zatím nedodal svůj medailonek.
 \chapter{Todo}
 \todo{infobox kategorie}
 \todo{Hlasovací arch}
-\todo{br}
 \todo{vysílání fm - odkaz}
 \todo{jména uživatelů}
-\todo{Obrázky}
 }
 
 \chapter{Bonusy}
@@ -144,10 +136,10 @@ Věci zde jsou generované z wiki.
 \pagebreak
 \newcommand{\btbinfo}[6]{
 
-\ifx Z#6 \textbf{#1} \else #1 \small{  (i)} \fi  & #6 & \pageref{#2} &  \small{#3} & \small{#4} & \small{#5}\hline
+\ifx Z#6 \textbf{#1} \else #1 \small{  (i)} \fi   & \pageref{#2} &  \small{#3} & \small{#4} & \small{#5}\hline
 } 
-\begin{longtable}{p{4cm}|p{6mm}|p{.4cm}|p{3.2cm}|p{3cm}|p{4.2cm}|}
-Název&Z&str.&čas&hráči&téma \hline 
+\begin{longtable}{|p{4cm}|p{.4cm}|p{3.2cm}|p{3cm}|p{4.2cm}|}
+Název&str.&čas&hráči&téma \hline 
 \input{boxtable}
 \end{longtable}
 \pagebreak
