@@ -11,6 +11,7 @@ Bar
 Bar (forma)
 Barman song
 Báseň
+Báseň (cvičení)
 Běh přes překážky
 Blokování hry
 Bránění ve hře
@@ -79,6 +80,7 @@ improvizační trojzubec
 Improvizační trojzubec
 ImproWiki
 Jazykolam
+jestli víš co tím myslím
 Jestli víš co tím myslím
 Jsem a beru
 Jsem, beru
@@ -278,5 +280,6 @@ Zpomalený pohyb
 Zvuky
 Židle
 Živé obrazy
+živý obraz
 1000 způsobů jak
 7 slov
