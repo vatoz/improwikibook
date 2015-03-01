@@ -11,6 +11,7 @@ Bar
 Bar (forma)
 Barman song
 Báseň
+Báseň (cvičení)
 Běh přes překážky
 Blokování hry
 Bránění ve hře
@@ -173,6 +174,7 @@ prostředí
 Prskavka
 prskavka ala chanson
 Prskavka ala chanson
+prskavka ala šanson
 Prskavka ala šanson
 přebírání pozice
 Přebírání pozice
@@ -192,6 +194,7 @@ Rekvizita
 replika
 Režiséři
 rozehřívání diváků
+Rozehřívání diváků
 Rozhlasová hra
 rozhodčí
 Rozhodčí
@@ -209,6 +212,7 @@ Spoon river
 Sportovní komentátor
 s rekvizitou
 S rekvizitou
+status
 stíhačka
 Stíhačka
 Stojí, leží, sedí
@@ -222,6 +226,7 @@ střih
 Šumlovaná
 šumlovaná se simultáním překladem
 Šumlovaná se simultáním překladem
+šumlovaná se simultánním překladem
 Šumlovaná se simultánním překladem
 šumlovaný sbor
 Tam a zpět
@@ -278,5 +283,6 @@ Zpomalený pohyb
 Zvuky
 Židle
 Živé obrazy
+živý obraz
 1000 způsobů jak
 7 slov
