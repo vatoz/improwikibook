@@ -39,7 +39,8 @@ $t=preg_replace("~\<(references)[[:space:]]{0,10}\/\>~"," ",$t);
 //$t=preg_rplace("~\[\[(Uživatel:[[:alnum:][:space:]\-".CZK."]+)\|([[:alnum:][:space:]".CZK."]+)\]\]~",'\\odkaz{$1}{$2}',$t);
 
 
-$t=preg_replace("~\<ref[[:space:]]{0,10}\>([[:alnum:][:space:]".CZK."]*)\<\/ref[[:space:]]{0,10}\>~",'\\footnote{$1}',$t);
+$t=preg_replace("~\<ref[[:space:]]{0,10}\>~","\\footnote{",$t);
+$t=preg_replace("~\<\/ref[[:space:]]{0,10}\>~",'}',$t);
 
 
 return $t;	
