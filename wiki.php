@@ -27,6 +27,7 @@ return $t;
 function MediaWiki2Latex($title,$text){
 	global $TRANSPOSE;
 	ob_start();
+	echo "\\needspace{5cm} ";
 if (!$TRANSPOSE) echo "\section{".safe($title)."} ";
 echo "\label{".safe(mb_strtolower($title,"UTF-8"))."} ";
 $lastrow="";
@@ -36,7 +37,7 @@ $trimrow=trim($row);
 if(preg_match("~^[\*]{0,1}[[:space:]]{0,2}[\[]{0,1}http[s]{0,1}\:~",$trimrow)){
 	//ignore youtube videos and internet hrefs
 }
-elseif(preg_match("~\=\=[[:space:]]{0,2}(Ukázková videa|Videa|Externí odkazy|Reference)[[:space:]]{0,2}\=\=~",$trimrow)){
+elseif(preg_match("~\=\=[[:space:]]{0,2}(Ukázková videa|Videa|Externí odkazy|Reference|Ukázky)[[:space:]]{0,2}\=\=~",$trimrow)){
 	//ignore chapters
 }
 
@@ -101,6 +102,8 @@ $lastrow="\\end{itemize}\n";
 
 }
 echo $lastrow;
+
+
 $result=ob_get_contents();
 ob_end_clean();
 if($title=="Emoce"){
