@@ -108,7 +108,7 @@ if($title=="Emoce"){
 	$result=preg_replace("~\<\/div\>~","\\end{multicols}",$result);
 }
 
-echo infoboxkategorie($result,$title);
+echo sablony($result,$title);
 //echo $result;
 }
 

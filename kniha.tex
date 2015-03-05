@@ -20,6 +20,10 @@
 Ve wiki či v převodníku se píše že by se mělo udělat: \textbf{#1} 
 
 }
+
+\setlength{\intextsep}{0pt}
+
+
 \newcommand{\katabox}[3]{\begin{wrapfigure}{R}{5.3cm}
  \begin{tabular}[t]{r|p{4cm}}
 \textbf{Téma}&\p{ #1} \\ 
@@ -28,10 +32,30 @@ Ve wiki či v převodníku se píše že by se mělo udělat: \textbf{#1}
 \end{tabular}
 \end{wrapfigure}}
 
+\newcommand{\faulbox}[3]{
+
+\begin{wrapfigure}{L}{0}
+#1
+\end{wrapfigure}
+
+\textbf{Gesto:}\p{#2} 
+
+
+\textbf{Trestné body:}\p{#3} 
+
+
+}
+
+
 \newcommand{\obrazek}[2]{
 \includegraphics[width=4cm]{#1}
 
 \textbf{#2}}
+
+
+\newcommand{\obrazekmaly}[1]{
+\includegraphics[width=1.8cm]{#1}}
+
 
 \newcommand{\odkaz}[2]{\textbf{#1}\textsuperscript{s.~\pageref{#2}}} 
 

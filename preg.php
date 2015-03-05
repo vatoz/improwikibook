@@ -24,6 +24,7 @@ $t=preg_replace("~\[\[:Kategorie:([[:alnum:][:space:]".CZK."]+)\|([[:alnum:][:sp
 
 
 $t=preg_replace("~\[\[Image\:([[:alnum:]\_\-]*)\.png[\|[:alnum:][:space:]".CZK."]*\|([[:alnum:][:space:]".CZK."\,]*)\]\]~",'\\obrazek{$1}{$2}',$t);
+$t=preg_replace("~\[\[image\:([[:alnum:]\_\-]*)\.png[\|[:alnum:][:space:]".CZK."]*\|([[:alnum:][:space:]".CZK."\,]*)\]\]~",'\\obrazek{$1}{$2}',$t);
 
 
 //$t=preg_replace("~ ([szvkai]{1,1}) ~",' $1~',$t);
@@ -80,6 +81,9 @@ if(isset($a[0])){
 					$s=strpos($href," ");
 					$result.="\\textbf{".substr($href,$s+1)."}";
 					//odebrán http odkaz
+				}elseif(str_starts($href,"Image:")){
+						$result.="\obrazekmaly{".substr($href,6)."}";
+						
 			    }else{
 					$result.="\\odkaz{".$title."}{".mb_strtolower($href,"UTF-8")."}";
 					global $links;
@@ -103,32 +107,55 @@ return $text;
 }
 $kategorie_boxtable=array();
 
-function infoboxkategorie($text,$kategorie){
-	$dta="[\|[\s]{0,10}(cas|hraci|tema)[\s]{0,10}\=[\s]{0,10}([[:alnum:]\,\+\-\s\:\/\.\*\(\)".CZK."]*)[\s]{0,10}]*";
-preg_match_all("~\{\{[\s]*Kategorie[\s]*".$dta.$dta.$dta."\}\}~",$text,$results);
+function render_katabox($title,$data){
+	global $kategorie_boxtable;
+		$kategorie_boxtable[$title]=$data;
+		return "\\katabox{".$data["tema"]."}{".$data["hraci"]."}{".$data["cas"]."}";
+	
+	}
+	
+
+function render_faulbox($title,$data){
+	//global $kategorie_boxtable;
+		//$kategorie_boxtable[$title]=$data;
+		return "\\faulbox{".$data["obrazek"]."}{".$data["gesto"]."}{".$data["body"]."}";
+	}
+		
+	
+	
+	
+function sablona_params($text,$sablona,$params,$fce,$title){
+	
+	
+	$dta="[\|[\s]{0,10}(".implode("|",$params) .")[\s]{0,10}\=[\s]{0,10}([[:alnum:]\,\\\\\{\}\+\-\s\:\/\.\*\(\)".CZK."]*)[\s]{0,10}]*";
+preg_match_all("~\{\{[\s]*".$sablona."[\s]*".
+str_repeat($dta,count($params))."\}\}~",$text,$results);
+
 
 
 if(isset($results[0])){
-	foreach($results[6] as $index=>$rand){
+	foreach($results[count($params)*2] as $index=>$rand){
 		$start=strpos($text,$results[0][$index]);
 		$result=substr($text,0,$start);
 		$d=array();
-		$d[$results[1][$index]]=trim($results[2][$index]);
-		$d[$results[3][$index]]=trim($results[4][$index]);
-		$d[$results[5][$index]]=trim($results[6][$index]);
-		$d["kategorie"]=$kategorie;
-		global $kategorie_boxtable;
-		$kategorie_boxtable[$kategorie]=$d;
-		$result.="\\katabox{".$d["tema"]."}{".$d["hraci"]."}{".$d["cas"]."}";
+		for ($i=1;$i<count($params)*2;$i+=1){
+			$d[$results[$i][$index]]=$results[$i+1][$index];
+			}
+		$result.=$fce($title,$d);
 		$result.=substr($text,$start+strlen($results[0][$index]));
 		$text=$result;
-		
 		
     }
 	
 	}
-
-
-
 	return $text;
+	
+	
 	}
+function sablony($text,$title){
+		$text=sablona_params($text,"Kategorie",array("cas","hraci","tema"),"render_katabox",$title);
+		$text=sablona_params($text,"Faul",array("obrazek","body","gesto"),"render_faulbox",$title);
+	return $text;
+}		
+	
+
