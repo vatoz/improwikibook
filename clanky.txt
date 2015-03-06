@@ -1,3 +1,4 @@
+
 ABAB
 Abeceda
 askfor
@@ -54,9 +55,11 @@ Faul
 Filmové žánry
 forma
 Forma
+freeformy
 gibberish
 Gibberish
 Gordický uzel
+Harold
 hlasovací kartička
 Hlasovací kartička
 hlasování
@@ -123,6 +126,7 @@ kvaziznaková řeč
 Kvaziznaková řeč
 Literatura
 longforma
+Longforma
 Loutky
 Love song
 Lovesong
@@ -130,6 +134,7 @@ MC
 Mikrofon
 Mimo rámec
 Monolog
+Motelu
 motivovaný odchod
 Motivovaný odchod
 muzikál
@@ -185,6 +190,7 @@ Předmět
 Předzápasový trénink
 Překlad do znakové řeči
 příběh
+Příběh
 Příběh po jednom slově
 Pyramida
 Ready Go
@@ -193,6 +199,7 @@ Reklamace
 rekvizita
 Rekvizita
 replika
+Replika
 Režiséři
 rozehřívání diváků
 Rozehřívání diváků
@@ -214,11 +221,14 @@ Sportovní komentátor
 s rekvizitou
 S rekvizitou
 status
+Status
 stíhačka
 Stíhačka
 Stojí, leží, sedí
 Stroj
 střih
+Střih
+šaškování
 Šaškování
 Štafeta
 štronzo
@@ -237,8 +247,12 @@ Tisíc způsobů jak
 Toaster
 Touster
 trenér
+Trenér
+trénink
+Trénink
 trestný bod
 Trestný bod
+trestný bodsou
 Trojitá stíhačka
 Tříhlavý song
 tým
@@ -249,8 +263,8 @@ User:Vatoz
 Uživatel:Just-paja
 Uživatel:VandaGabi
 Uživatel:Vatoz
-Uživatel:Vatoz/Improknihovnička
 Uživatel:VojtechKopta
+veřejná rozcvička
 Veřejná rozcvička
 Věty, které by neměly zaznít
 Věty z kapsy
