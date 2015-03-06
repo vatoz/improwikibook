@@ -1,7 +1,7 @@
 *.tex
-kniha.aux
-kniha.log
-kniha.pdf
+*.aux
+*.log
+*.pdf
 kniha.toc
 wiki.xml
 *.png
