@@ -205,7 +205,15 @@ Body:  & Body: \\ \hline
 \begin{multicols}{2}
 \input{boxtable}
 \end {multicols}
+\pagebreak
+\newcommand{\faulinfo}[5]{
+#4 & #1 & #3 & #5 \\
 
+}
+
+\begin{tabular}[t]{|p{3cm}|p{4cm}|p{1cm}|p{6cm}    |}
+\input{faultable}
+\end{tabular}
 
 \setcounter{tocdepth}{1}
 \tableofcontents

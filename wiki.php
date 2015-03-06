@@ -236,21 +236,33 @@ foreach ($data as $r=>$nonsense){
 //var_export(array_keys($articles));
 PutArrData(array_keys($articles),"zbytek.tex");
 
-ksort($kategorie_boxtable,SORT_LOCALE_STRING);
+
+function save_table($filename,$data,$element,$keys){
 ob_start();
-foreach($kategorie_boxtable as $Key=>$Row){
-	echo "\\btbinfo{".$Key."}{".
-	mb_strtolower($Key,"UTF-8") ."}{".
-	$Row["cas"]."}{".
-	$Row["hraci"]."}{".
-	$Row["tema"]."}{".
-	(in_array($Key,$zapas)?"Z":"I")
-	."}\n";
+foreach($data as $Key=>$Row){
+	echo "\\".$element."{".$Key."}{".
+	mb_strtolower($Key,"UTF-8") ."}";
+	foreach($keys as $subkey){
+	echo "{";
+	echo $Row[$subkey];
+	echo "}";	
+	}
+	echo "\n";
 	
+	}
+	file_put_contents($filename,ob_get_contents());
+	ob_end_clean();
+	echo "Saved ".$filename."\n";
 }
-file_put_contents("boxtable.tex",ob_get_contents());
-ob_end_clean();
-echo "Saved boxtable.tex\n";
+
+foreach ($kategorie_boxtable as $Key=>$Row){
+	$kategorie_boxtable[$Key]["zapasova"]=	(in_array($Key,$zapas)?"Z":"I");
+}
+
+ksort($kategorie_boxtable,SORT_LOCALE_STRING);
+save_table("boxtable.tex",$kategorie_boxtable,"btbinfo",array("cas","hraci","tema","zapasova"));
+save_table("faultable.tex",$faultable,"faulinfo",array("body","obrazek","gesto"));
+
 
 $links=array_unique($links);
 asort($links,SORT_LOCALE_STRING);

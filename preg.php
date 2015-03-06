@@ -107,6 +107,7 @@ return $text;
 }
 $kategorie_boxtable=array();
 
+$faultable=array();
 function render_katabox($title,$data){
 	global $kategorie_boxtable;
 		$kategorie_boxtable[$title]=$data;
@@ -116,8 +117,8 @@ function render_katabox($title,$data){
 	
 
 function render_faulbox($title,$data){
-	//global $kategorie_boxtable;
-		//$kategorie_boxtable[$title]=$data;
+	global $faultable;
+		$faultable[$title]=$data;
 		return "\\faulbox{".$data["obrazek"]."}{".$data["gesto"]."}{".$data["body"]."}";
 	}
 		
