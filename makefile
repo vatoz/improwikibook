@@ -1,8 +1,17 @@
+draft:
+	php wiki.php
+	- pdflatex -interaction=nonstopmode  kniha.tex
+pexeso:
+	php wiki.php
+	- pdflatex -interaction=nonstopmode  pexeso.tex
+
+
 all:
 	php wiki.php
 	- pdflatex -interaction=nonstopmode  kniha.tex
 	- pdflatex -interaction=nonstopmode  kniha.tex
 	- pdflatex -interaction=nonstopmode  kniha.tex
+	
 clean:
 	rm cviceni.tex
 	rm fauly.tex
@@ -20,7 +29,14 @@ clean:
 	rm books.tex
 	rm authors.tex
 	rm postavy.tex
-	
+	rm faultable.tex
+	rm fauly_start.tex
+	rm pribeh_start.tex
+	rm rozcvicky_start.tex
+	rm predzapasovy.tex
+	rm uvod.tex
+	rm kategorie_start.tex
+	rm boxtable.tex
 xml:
 	-rm wiki.xml
 	php xml.php
