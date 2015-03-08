@@ -186,7 +186,7 @@ PutArrData(array('Zápas'),"zapas.tex");
 PutArrData(array('ImproWiki'),"uvod.tex");
 PutArrData(array('Kategorie','Kategorie:Zápasové kategorie'),"kategorie_start.tex");
 PutArrData(array('Příběh'),"pribeh_start.tex");
-PutArrData(array('Kategorie:Fauly'),"fauly_start.tex");
+PutArrData(array('Faul'),"fauly_start.tex");
 PutArrData(array('Kategorie:Rozcvičky'),"rozcvicky_start.tex");
 PutArrData(array('Předzápasový trénink'),"predzapasovy.tex");
 
@@ -207,6 +207,7 @@ unset($articles["Kategorie:Zpívané kategorie"]);
 unset($articles["Kategorie:Terminologie"]);
 unset($articles["Kategorie:Kategorie na improshow"]);
 unset($articles["Kategorie:Porovnávací kategorie"]);
+unset($articles["Kategorie:Fauly"]);
 
 unset($articles["Julyen Hamilton"]);
 unset($articles["Nátlak"]);
