@@ -42,6 +42,9 @@ $t=preg_replace("~\<(references)[[:space:]]{0,10}\/\>~"," ",$t);
 
 $t=preg_replace("~\<ref[[:space:]]{0,10}\>~","\\footnote{",$t);
 $t=preg_replace("~\<\/ref[[:space:]]{0,10}\>~",'}',$t);
+//$t=preg_replace("~\" ~","\"{} safe",$t);
+
+
 
 
 return $t;	
