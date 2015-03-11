@@ -37,6 +37,7 @@ clean:
 	rm uvod.tex
 	rm kategorie_start.tex
 	rm boxtable.tex
+	rm zpivane.tex
 xml:
 	-rm wiki.xml
 	php xml.php

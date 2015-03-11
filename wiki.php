@@ -142,6 +142,7 @@ $defz=array(
   "terminologie"=>"[[Kategorie:Terminologie]]",
   "rozcvicky"=>"[[Kategorie:Rozcvičky]]",
   "cviceni"=>"[[Kategorie:Cvičení]]",
+  'zpivane'=>"[[Kategorie:Zpívané kategorie]]",
   
 );
 
@@ -156,17 +157,22 @@ foreach ($a->page as $Page){
   if(strpos("  ".$Page->revision->text[0],$k    )){
   $data[$r][]=trim($Page->title);
   
-  break;
+  //break;
   }
 
 } 
-
 
 //$articles[trim($Page->title)]= $Page->revision->text[0];
 
 }
 
-
+$t="\label{:kategorie:zpívané kategorie}\begin{itemize}\n";
+foreach($data["zpivane"] as $Key){
+$t.= "\item  \odkaz{".$Key."}{".mb_strtolower($Key,"UTF-8") ."} \n";
+}
+$t.="\\end{itemize}\n";
+$articles["Seznam zpívaných kategorií"]=$t;
+unset($data["zpivane"]);
 function PutArrData($Seznam,$file){
   global $articles;
 
