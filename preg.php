@@ -4,7 +4,7 @@ define("CZK",
 );
 function preg_mediawiki($text){
 //$text=" [[pokus]]ný [[králík]] [[voda|vodník]]";
-preg_match_all("~\[[\[]{0,1}([[:alnum:][:space:]\,\/\.\-\(\)\:\_".CZK."\#]+)([\|]{1,1}[[:alnum:][:space:]\(\)".CZK."]*){0,1}\][\]]{0,1}([[:alnum:]".CZK."]*)~",$text,$results);
+preg_match_all("~\[[\[]{0,1}([[:alnum:][:space:]\,\/\.\-\(\)\:\_\=\?".CZK."\#]+)([\|]{1,1}[[:alnum:][:space:]\(\)".CZK."]*){0,1}\][\]]{0,1}([[:alnum:]".CZK."]*)~",$text,$results);
 //
 return ($results);
 }
