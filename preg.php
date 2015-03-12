@@ -44,7 +44,7 @@ $t=preg_replace("~\<ref[[:space:]]{0,10}\>~","\\footnote{",$t);
 $t=preg_replace("~\<\/ref[[:space:]]{0,10}\>~",'}',$t);
 
 $t=preg_replace("~\" ~","\"{} ",$t);//mezera za uvozovkami
-
+$t=str_replace("[[Image:Hlasovani.jpg|right|thumb|250px|Diváci hlasují kartičkami]]","",$t);
 
 
 

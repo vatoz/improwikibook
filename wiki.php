@@ -143,12 +143,17 @@ $defz=array(
   "rozcvicky"=>"[[Kategorie:Rozcvičky]]",
   "cviceni"=>"[[Kategorie:Cvičení]]",
   'zpivane'=>"[[Kategorie:Zpívané kategorie]]",
+  'porovnavaci'=>"[[Kategorie:Porovnávací kategorie]]",
   
 );
 
 
 $data=array(
 );
+foreach($defz as $key=>$Row){
+	$data[$key]=array();//nucené pořadí skupin, jinak se generují do jiných, než je žádoucí
+}
+
 
 //var_export($a);
 foreach ($a->page as $Page){
@@ -166,13 +171,24 @@ foreach ($a->page as $Page){
 
 }
 
-$t="\label{:kategorie:zpívané kategorie}\begin{itemize}\n";
-foreach($data["zpivane"] as $Key){
+function arrkeystotexlist($arr){
+$t="\begin{itemize}\n";
+foreach($arr as $Key){
 $t.= "\item  \odkaz{".$Key."}{".mb_strtolower($Key,"UTF-8") ."} \n";
 }
 $t.="\\end{itemize}\n";
-$articles["Seznam zpívaných kategorií"]=$t;
+return $t;
+	
+	}
+$articles["Seznam zpívaných kategorií"]="\label{:kategorie:zpívané kategorie}\n"
+.arrkeystotexlist($data["zpivane"]);
 unset($data["zpivane"]);
+
+$articles["Porovnávací kategorie"]= $articles["Kategorie:Porovnávací kategorie"]. "\label{:kategorie:porovnávací kategorie}\n"
+.arrkeystotexlist($data["porovnavaci"]);
+$data["terminologie"][]="Porovnávací kategorie";
+unset($data["porovnavaci"]);
+
 function PutArrData($Seznam,$file){
   global $articles;
 
@@ -187,10 +203,15 @@ ob_end_clean();
 echo "File: ".$file." saved\n"; 
 }
 
+$d=strpos($articles["Kategorie"],"== Kam");
+if($d>20){
+	$articles["Kategorie"]=substr($articles["Kategorie"],0,$d);
+}
+
 $TRANSPOSE=true;	
 PutArrData(array('Zápas'),"zapas.tex");
 PutArrData(array('ImproWiki'),"uvod.tex");
-PutArrData(array('Kategorie','Kategorie:Zápasové kategorie'),"kategorie_start.tex");
+PutArrData(array('Kategorie' ,'Kategorie:Zápasové kategorie'),"kategorie_start.tex");
 PutArrData(array('Příběh'),"pribeh_start.tex");
 PutArrData(array('Faul'),"fauly_start.tex");
 PutArrData(array('Kategorie:Rozcvičky'),"rozcvicky_start.tex");
