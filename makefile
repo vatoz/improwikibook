@@ -1,3 +1,10 @@
+
+all:
+	php wiki.php
+	- pdflatex -interaction=nonstopmode  kniha.tex
+	- pdflatex -interaction=nonstopmode  kniha.tex
+	- pdflatex -interaction=nonstopmode  kniha.tex
+
 draft:
 	php wiki.php
 	- pdflatex -interaction=nonstopmode  kniha.tex
@@ -6,11 +13,6 @@ pexeso:
 	- pdflatex -interaction=nonstopmode  pexeso.tex
 
 
-all:
-	php wiki.php
-	- pdflatex -interaction=nonstopmode  kniha.tex
-	- pdflatex -interaction=nonstopmode  kniha.tex
-	- pdflatex -interaction=nonstopmode  kniha.tex
 	
 clean:
 	rm cviceni.tex
