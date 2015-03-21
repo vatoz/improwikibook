@@ -1,17 +1,6 @@
 <?php
 /*Stáhne z improligy xml dump
- * Používá k tomu soubor clanky.txt,
- * který při každém běhu obnovuje skript wiki.php
- * jsou v něm všechny články na které zatím aplikace narazila a 
- * všechny, na které existuje nějaký odkaz
- * Pokud je ve wiki nějaký článek či ostrov článků, ne které nic neodkazuje, zkuste je přidat ručně
- * To je asi případ zejména článků o uživatelích.
- * 
- *Jsou tu všechny "Chybějící články" , pokud nějaké přibydou, tak generováním wiki z nově staženého xml se přidají do seznamu 
- * 
- * Bylo by hezké mít tu seznam stránek získaný přímo z wiki, ale to je hudba budoucnosti. 
- * 
- * */
+  */
 
 define("CZK",
 "říšňěžťčýůúěďóéŘÍŠŇĚŽŤČÝÚŮĚĎÓÉ"
