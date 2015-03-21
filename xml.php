@@ -50,7 +50,7 @@ $urls=array(
 foreach($urls as $url){
 	$seznam.="\n".load_list ($url);	
 }
-file_put_contents("seznam.txt",$seznam);
+
 
 
 //set POST variables
