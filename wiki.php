@@ -7,7 +7,6 @@
 <pre>
 <?php
 setlocale(LC_ALL,"cs_CZ.UTF8");
-$links=explode("\n",file_get_contents("clanky.txt"));//viz xml.php
 
 include "preg.php";
 $TRANSPOSE=false;
@@ -126,8 +125,6 @@ echo "simple _done ";
 function atoa($a,$b){
 global $articles;
 $articles[trim($a)]=trim($b);
-global $links;
-$links[]=trim($a);
 }
 
 
@@ -291,11 +288,5 @@ ksort($kategorie_boxtable,SORT_LOCALE_STRING);
 save_table("boxtable.tex",$kategorie_boxtable,"btbinfo",array("cas","hraci","tema","zapasova"));
 save_table("faultable.tex",$faultable,"faulinfo",array("body","obrazek","gesto"));
 
-
-$links=array_unique($links);
-asort($links,SORT_LOCALE_STRING);
-
-file_put_contents("clanky.txt",implode("\n",$links));
-echo "Saved clanky.txt\n";
 
 

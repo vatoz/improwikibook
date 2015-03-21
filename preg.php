@@ -90,14 +90,10 @@ if(isset($a[0])){
 						
 			    }else{
 					$result.="\\odkaz{".$title."}{".mb_strtolower($href,"UTF-8")."}";
-					global $links;
-					$links[]=$href;
 					}
 			
 		}else{
 			$result.="\\odkaz{".$title."}{".mb_strtolower($href,"UTF-8")."}";
-			global $links;
-					$links[]=$href;
 			
 		}
 		$result.=substr($text,$start+strlen($link));
