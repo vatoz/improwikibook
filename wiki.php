@@ -213,6 +213,7 @@ PutArrData(array('Příběh'),"pribeh_start.tex");
 PutArrData(array('Faul'),"fauly_start.tex");
 PutArrData(array('Kategorie:Rozcvičky'),"rozcvicky_start.tex");
 PutArrData(array('Předzápasový trénink'),"predzapasovy.tex");
+PutArrData(array('Příprava zápasu'),"priprava.tex");
 
 $TRANSPOSE=false;
 
