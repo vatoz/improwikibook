@@ -4,6 +4,11 @@ all:
 	- pdflatex -interaction=nonstopmode  kniha.tex
 	- pdflatex -interaction=nonstopmode  kniha.tex
 	- pdflatex -interaction=nonstopmode  kniha.tex
+all:logo.png
+
+logo.png:
+	wget wiki.improliga.cz/skins/logo.png
+
 
 draft:
 	php wiki.php
@@ -40,6 +45,7 @@ clean:
 	rm kategorie_start.tex
 	rm boxtable.tex
 	rm priprava.tex
+	rm logo.png
 xml:
 	-rm wiki.xml
 	php xml.php
