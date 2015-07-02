@@ -156,7 +156,7 @@ foreach($defz as $key=>$Row){
 foreach ($a->page as $Page){
  atoa( $Page->title, $Page->revision->text[0]);
  foreach($defz as $r=>$k){
-  if(strpos("  ".$Page->revision->text[0],$k    )){
+  if(stripos("  ".$Page->revision->text[0],$k    )){
   $data[$r][]=trim($Page->title);
   
   //break;

@@ -36,22 +36,21 @@ function load_list($url){
 	$p_start= strpos($data,'<td class="mw-allpages-nav">');
 	$p_end=strpos($data,'<div class="printfooter">',$p_start);
 	$data=substr($data,$p_start,$p_end -$p_start);
-	preg_match_all("~\>([[:alnum:]\ \_\(\)\-\&\:\,".CZK."]*)\<~",$data,$result);
+	preg_match_all("~\>([[:alnum:]\ \_\(\)\-\&\:\,\/".CZK."]*)\<~",$data,$result);
 
 	return implode ("\n",$result[1]);	
 }
 
 $seznam="";
 $urls=array(
-'http://wiki.improliga.cz/index.php?title=Speci%C3%A1ln%C3%AD:Všechny_str%C3%A1nky',
+"http://wiki.improliga.cz/index.php?title=Speci%C3%A1ln%C3%AD:Všechny_str%C3%A1nky",
 "http://wiki.improliga.cz/index.php?title=Speciální%3AVšechny+stránky&namespace=2",
 "http://wiki.improliga.cz/index.php?title=Speciální%3AVšechny+stránky&namespace=14");
 
 foreach($urls as $url){
 	$seznam.="\n".load_list ($url);	
 }
-
-
+file_put_contents("seznam.txt",$seznam);
 
 //set POST variables
 $url = 'http://wiki.improliga.cz/index.php?title=Speci%C3%A1ln%C3%AD:Exportovat_str%C3%A1nky&amp;action=submit';
