@@ -29,7 +29,7 @@ $t=preg_replace("~\[\[image\:([[:alnum:]\_\-]*)\.png[\|[:alnum:][:space:]".CZK."
 
 //$t=preg_replace("~ ([szvkai]{1,1}) ~",' $1~',$t);
 $t=preg_replace("~\{\{todo\|([[:alnum:][:space:]\/".CZK."]{1,30})\}\}~",'\\todo{$1}',$t);
-$t=preg_replace("~\<br\>~","\n\n",$t);
+$t=preg_replace("~\<br[[:space:]\/]{0,10}\>~","\n\n",$t);
 //$t=preg_replace("~\{\{todo\|([[:alnum:][:space:]\/".$czk."]{1,30})\}\}~",'\\todo{$1}',$t);
 
 

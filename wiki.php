@@ -36,7 +36,10 @@ $trimrow=trim($row);
 if(preg_match("~^[\*]{0,1}[[:space:]]{0,2}[\[]{0,1}http[s]{0,1}\:~",$trimrow)){
 	//ignore youtube videos and internet hrefs
 }
-elseif(preg_match("~\=\=[[:space:]]{0,2}(Ukázková videa|Videa|Externí odkazy|Reference|Ukázky)[[:space:]]{0,2}\=\=~",$trimrow)){
+elseif(preg_match("~\=\=[[:space:]]{0,2}(Ukázková videa|Videa|Externí odkazy|Reference|Ukázky|Externí zdroje)[[:space:]]{0,2}\=\=~",$trimrow)){
+	//ignore chapters
+}
+elseif(preg_match("~\{\{Cvičení-varování\}\}~",$trimrow)){
 	//ignore chapters
 }
 
@@ -65,6 +68,17 @@ elseif(substr($trimrow,0,2)=="=="){
 		
 		
 		}}
+		
+elseif(substr($trimrow,0,1)=="="){
+  echo $lastrow;$lastrow="";
+  if($TRANSPOSE){
+  echo "\section{".safe(substr($trimrow,1,-1)  )."} ";
+	}else{
+	echo "\subsection{".safe(substr($trimrow,1,-1)  )."} ";
+		
+		
+		}}
+		
 elseif(strpos($trimrow,"REDIRECT")!==false){
 ob_end_clean();
 
@@ -140,6 +154,7 @@ $defz=array(
   "rozcvicky"=>"[[Kategorie:Rozcvičky]]",
   "cviceni"=>"[[Kategorie:Cvičení]]",
   'zpivane'=>"[[Kategorie:Zpívané kategorie]]",
+  'warmup'=>"[[Kategorie:Warm-up]]",
   'porovnavaci'=>"[[Kategorie:Porovnávací kategorie]]",
   
 );
@@ -177,14 +192,22 @@ $t.="\\end{itemize}\n";
 return $t;
 	
 	}
-$articles["Seznam zpívaných kategorií"]="\label{:kategorie:zpívané kategorie}\n"
-.arrkeystotexlist($data["zpivane"]);
+$articles["Zpívané kategorie"]=
+$articles["Kategorie:Zpívané kategorie"]
+."\begin{multicols}{2}".arrkeystotexlist($data["zpivane"])."\\end{multicols}";
 unset($data["zpivane"]);
 
-$articles["Porovnávací kategorie"]= $articles["Kategorie:Porovnávací kategorie"]. "\label{:kategorie:porovnávací kategorie}\n"
-.arrkeystotexlist($data["porovnavaci"]);
+$articles["Porovnávací kategorie"]= $articles["Kategorie:Porovnávací kategorie"]. "\label{:kategorie:porovnávací kategorie}\n".
+"\begin{multicols}{2}".arrkeystotexlist($data["porovnavaci"])."\\end{multicols}";
 $data["terminologie"][]="Porovnávací kategorie";
 unset($data["porovnavaci"]);
+
+$articles["Warm-upy"]=$articles["Kategorie:Warm-up"].
+"\begin{multicols}{2}".
+arrkeystotexlist($data["warmup"])."\\end{multicols}";
+unset ($articles["Kategorie:Warm-up"]);
+unset($data["warmup"]);
+
 
 function PutArrData($Seznam,$file){
   global $articles;
@@ -233,6 +256,8 @@ unset($articles["Kategorie:Terminologie"]);
 unset($articles["Kategorie:Kategorie na improshow"]);
 unset($articles["Kategorie:Porovnávací kategorie"]);
 unset($articles["Kategorie:Fauly"]);
+unset($articles["Kategorie:Warmup"]);
+unset($articles["Kategorie:Warm-up"]);
 
 unset($articles["Julyen Hamilton"]);
 unset($articles["Nátlak"]);
