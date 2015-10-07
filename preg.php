@@ -1,6 +1,6 @@
 <?php
 define("CZK",
-"říšňěžťčýůúěďóéŘÍŠŇĚŽŤČÝÚŮĚĎÓÉ"
+"říšňěžťčýůúěďáóéŘÍŠŇĚŽŤČÝÚŮĚĎÁÓÉ"
 );
 function preg_mediawiki($text){
 //$text=" [[pokus]]ný [[králík]] [[voda|vodník]]";
@@ -15,7 +15,7 @@ function str_starts($haystack,$needle){
 	}
 function rep_something($t){
 //věci co mají být tučně, poslední uvozovky jsou tu proto, aby se nepolykaly mezery
-$t=preg_replace("~'''([[:alnum:][:space:]\/".CZK."]{1,30})'''~",'\\textbf{$1}{}',$t);
+$t=preg_replace("~'''([[:alnum:][:space:]\/".CZK."/:/&/(/)/-/,]{1,40})'''~",'\\textbf{$1}{}',$t);
 
 $t=preg_replace("~\[\[Kategorie:[[:alnum:][:space:]".CZK."]+\]\]~",'',$t);
 

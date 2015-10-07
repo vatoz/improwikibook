@@ -192,7 +192,7 @@ $t.="\\end{itemize}\n";
 return $t;
 	
 	}
-$articles["Zpívané kategorie"]=
+$articles["Zpívané kategorie"]="\label{:kategorie:zpívané kategorie}".
 $articles["Kategorie:Zpívané kategorie"]
 ."\begin{multicols}{2}".arrkeystotexlist($data["zpivane"])."\\end{multicols}";
 unset($data["zpivane"]);
