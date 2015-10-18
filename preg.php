@@ -2,6 +2,7 @@
 define("CZK",
 "říšňěžťčýůúěďáóéŘÍŠŇĚŽŤČÝÚŮĚĎÁÓÉ"
 );
+define("TEXTUAL","[[:alnum:][:space:]\/".CZK."\.\:\&\(\)-,!-]");
 function preg_mediawiki($text){
 //$text=" [[pokus]]ný [[králík]] [[voda|vodník]]";
 preg_match_all("~\[[\[]{0,1}([[:alnum:][:space:]\,\/\.\-\(\)\:\_\=\?".CZK."\#]+)([\|]{1,1}[[:alnum:][:space:]\(\)".CZK."]*){0,1}\][\]]{0,1}([[:alnum:]".CZK."]*)~",$text,$results);
@@ -15,7 +16,8 @@ function str_starts($haystack,$needle){
 	}
 function rep_something($t){
 //věci co mají být tučně, poslední uvozovky jsou tu proto, aby se nepolykaly mezery
-$t=preg_replace("~'''([[:alnum:][:space:]\/".CZK."/:/&/(/)/-/,]{1,40})'''~",'\\textbf{$1}{}',$t);
+$t=preg_replace("~'''(".TEXTUAL."{1,40})'''~",'\\textbf{$1}{}',$t);
+$t=preg_replace("~''(".TEXTUAL."{1,40})''~",'\\textif{$1}{}',$t);
 
 $t=preg_replace("~\[\[Kategorie:[[:alnum:][:space:]".CZK."]+\]\]~",'',$t);
 
