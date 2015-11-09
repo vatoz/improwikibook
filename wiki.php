@@ -258,6 +258,9 @@ unset($articles["Kategorie:Porovnávací kategorie"]);
 unset($articles["Kategorie:Fauly"]);
 unset($articles["Kategorie:Warmup"]);
 unset($articles["Kategorie:Warm-up"]);
+unset($articles["Kategorie:S divákem"]);
+unset($articles["Kategorie:Cvičení v kruhu"]);
+
 
 unset($articles["Julyen Hamilton"]);
 unset($articles["Nátlak"]);
