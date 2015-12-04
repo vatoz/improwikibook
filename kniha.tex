@@ -17,6 +17,14 @@
 \usepackage{multicol}
 
 \usepackage[T1]{fontenc}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LO,LE]{\today}
+\fancyhead[CE,CO]{wiki.improliga.cz}
+\fancyhead[RE,RO]{\thepage}
+
+
 
 \newcommand{\todo}[1]{
 
@@ -114,7 +122,9 @@ Některé termíny ještě nejsou popsané, přihlašte se na http://wiki.improl
 
 \textbf{Varování:} Nikdo se ještě nenaučil improvizovat z knížky. Popis kategorí je určen spíše zkušeným hráčům pro připomenutí, než nováčkům na naučení se.  
 
-\LaTeX{} sazbu připravuje  \odkaz{Václav Černý}{uživatel:vatoz}, chyby či náměty na vylepšení konverze hlaste na https://github.com/vatoz/improwikibook/issues
+\LaTeX{} sazbu připravuje  \odkaz{Václav Černý}{uživatel:vatoz}.
+
+Chyby či náměty na vylepšení konverze hlaste na https://github.com/vatoz/improwikibook/issues
 
 Případné faktické chyby a překlepy můžete opravit přímo na improwiki.
 \chapter{Zápas}
@@ -186,16 +196,13 @@ Tyto kategorie bývají hrány na improshow.
 
 \ifx Z#6 \textbf{#1} \else #1 \small{  (i)} \fi   & \pageref{#2} &  \small{#3} & \small{#4} & \small{#5}\hline
 }
-\thispagestyle{empty} 
 \begin{longtable}{|p{4cm}|p{.4cm}|p{3.2cm}|p{3cm}|p{4.2cm}|}
 \hline 
 Název&str.&čas&hráči&téma \hline 
 \input{boxtable}
 
 \end{longtable}
-\thispagestyle{empty} 
 \pagebreak
-\thispagestyle{empty} 
 \renewcommand{\btbinfo}[6]{
 \ifx Z#6 \large{#1}   \fi
 
@@ -219,7 +226,6 @@ Tým: &  Tým:\\ \hline
 3. & 3. \\ \hline
 4.  & 4. \\ \hline
 Body:  & Body: \\ \hline
-
 
 \end{tabular}
 \vspace{3mm}
