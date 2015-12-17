@@ -313,9 +313,28 @@ foreach ($kategorie_boxtable as $Key=>$Row){
 	$kategorie_boxtable[$Key]["zapasova"]=	(in_array($Key,$zapas)?"Z":"I");
 }
 
+
+
 ksort($kategorie_boxtable,SORT_LOCALE_STRING);
 save_table("boxtable.tex",$kategorie_boxtable,"btbinfo",array("cas","hraci","tema","zapasova"));
 save_table("faultable.tex",$faultable,"faulinfo",array("body","obrazek","gesto"));
+
+$r=$data["rozcvicky"]; 
+foreach($r as $key=>$value){ 
+
+if(in_array($value,array_keys($kategorie_boxtable
+))) {
+		unset($r[$key]);
+		}
+
+
+	}
+
+	//	var_export($data["kategoriez"]);
+
+$r="\\large{".implode ("}\n\n\\large{",$r)."}";
+file_put_contents("rozcvickyshort.tex",$r);
+
 
 
 

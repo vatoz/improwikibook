@@ -45,6 +45,7 @@ clean:
 	rm kategorie_start.tex
 	rm boxtable.tex
 	rm priprava.tex
+	rm rozcvickyshort.text
 	rm logo.png
 xml:
 	-rm wiki.xml

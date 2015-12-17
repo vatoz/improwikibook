@@ -213,7 +213,8 @@ Název&str.&čas&hráči&téma \hline
 \begin{multicols}{2}
 
  \begin{tabular}[t]{|p{4cm}|p{4cm}    |}
- \hline 
+ \hline
+ \\ 
  \multicolumn{2}{|c|}{\large{Zápas}} \\
   \hline
 Rozhodčí:  & Konferenciér: \\
@@ -234,13 +235,24 @@ Body:  & Body: \\ \hline
 \end {multicols}
 
 \renewcommand{\btbinfo}[6]{
-\ifx Z#6  \else \large{#1}  \fi
+\ifx Z#6  \else 
+\large{#1 }
 
+  \fi
 }
 
-\begin{multicols}{2}
+\hline
+\begin{multicols}{3}
 \input{boxtable}
 \end {multicols}
+
+\hline
+\begin{multicols}{3}
+\input{rozcvickyshort}
+\end {multicols}
+
+
+
 \pagebreak
 \newcommand{\faulinfo}[5]{
 #4 & #1 & #3 & #5 \\
