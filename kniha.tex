@@ -214,7 +214,6 @@ Název&str.&čas&hráči&téma \hline
 
  \begin{tabular}[t]{|p{4cm}|p{4cm}    |}
  \hline
- \\ 
  \multicolumn{2}{|c|}{\large{Zápas}} \\
   \hline
 Rozhodčí:  & Konferenciér: \\
@@ -230,27 +229,28 @@ Body:  & Body: \\ \hline
 
 \end{tabular}
 \vspace{3mm}
-
 \input{boxtable}
 \end {multicols}
-
 \renewcommand{\btbinfo}[6]{
 \ifx Z#6  \else 
 \large{#1 }
 
   \fi
 }
-
 \hline
-\begin{multicols}{3}
-\input{boxtable}
-\end {multicols}
 
-\hline
 \begin{multicols}{3}
+\large{\textbf{Veřejné rozcvičky}}
+
 \input{rozcvickyshort}
 \end {multicols}
+\hline
 
+\begin{multicols}{3}
+\large{\textbf{Kategorie na improshow}}
+
+\input{boxtable}
+\end {multicols}
 
 
 \pagebreak
