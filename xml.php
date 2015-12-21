@@ -43,9 +43,11 @@ function load_list($url){
 
 $seznam="";
 $urls=array(
-"http://wiki.improliga.cz/index.php?title=Speci%C3%A1ln%C3%AD:Všechny_str%C3%A1nky",
-"http://wiki.improliga.cz/index.php?title=Speciální%3AVšechny+stránky&namespace=2",
-"http://wiki.improliga.cz/index.php?title=Speciální%3AVšechny+stránky&namespace=14");
+"http://wiki.improliga.cz/wiki/Speci%C3%A1ln%C3%AD:V%C5%A1echny_str%C3%A1nky",
+"http://wiki.improliga.cz/index.php?title=Speci%C3%A1ln%C3%AD:V%C5%A1echny_str%C3%A1nky&namespace=2",
+"http://wiki.improliga.cz/index.php?title=Speci%C3%A1ln%C3%AD:V%C5%A1echny_str%C3%A1nky&namespace=14",
+	
+);
 
 foreach($urls as $url){
 	$seznam.="\n".load_list ($url);	
