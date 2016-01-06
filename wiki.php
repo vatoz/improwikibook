@@ -253,6 +253,7 @@ unset($articles["Kategorie:Kratší formy"]);
 unset($articles["Kategorie:Seznam kategorií"]);
 unset($articles["Kategorie:Delší formy"]);
 unset($articles["Kategorie:Formy"]);
+unset($articles["Kategorie:Longformy"]);
 unset($articles["Kategorie:Zpívané kategorie"]);
 unset($articles["Kategorie:Terminologie"]);
 unset($articles["Kategorie:Kategorie na improshow"]);
