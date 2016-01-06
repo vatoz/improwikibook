@@ -146,6 +146,7 @@ $articles[trim($a)]=trim($b);
 $defz=array(
   'kategoriez'=>"[[Kategorie:Zápasové kategorie]]",
   'kategoriei'=>"[[Kategorie:Kategorie na improshow]]",
+  'longformy'=>"[[Kategorie:Longformy]]",
   "pribeh"=>"{{Fáze příběhu}}",
   "fauly"=>"[[Kategorie:Fauly]]",
   "postavy"=>"[[Kategorie:Postavy]]",
@@ -237,6 +238,7 @@ PutArrData(array('Faul'),"fauly_start.tex");
 PutArrData(array('Kategorie:Rozcvičky'),"rozcvicky_start.tex");
 PutArrData(array('Předzápasový trénink'),"predzapasovy.tex");
 PutArrData(array('Příprava zápasu'),"priprava.tex");
+PutArrData(array('Longforma'),"longforma.tex");
 
 $TRANSPOSE=false;
 

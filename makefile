@@ -45,8 +45,11 @@ clean:
 	rm kategorie_start.tex
 	rm boxtable.tex
 	rm priprava.tex
-	rm rozcvickyshort.text
+	rm rozcvickyshort.tex
 	rm logo.png
+	rm longformy.tex
+	rm longformy.tex
+	
 xml:
 	-rm wiki.xml
 	php xml.php
