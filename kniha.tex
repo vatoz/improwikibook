@@ -35,10 +35,11 @@ TODO: \textbf{#1}
 \setlength{\intextsep}{0pt}
 
 
-\newcommand{\katabox}[3]{\begin{wrapfigure}{R}{5.3cm}
- \begin{tabular}[t]{r|p{4cm}}
-\textbf{Téma}&\p{ #1} \\ 
-\textbf{Hráči}&\p{ #2} \\
+\newcommand{\katabox}[3]{
+\begin{wrapfigure}{R}{5.3cm}
+\begin{tabular}[t]{r|p{4cm}}
+\textbf{Téma}&\p{#1} \\ 
+\textbf{Hráči}&\p{#2} \\
 \textbf{Čas}&\p{#3} \\
 \end{tabular}
 \end{wrapfigure}}
@@ -90,10 +91,10 @@ TODO: \textbf{#1}
 \textsc{\Large wiki.improliga.cz pod licencí Creative Commons Uveďte autora }\\[0.5cm]
 
 % Title
-\HRule \\[0.4cm]
+\HRule %[0.4cm]
 { \huge \bfseries ImproWiki \\[0.4cm] }
 
-\HRule \\[1.5cm]
+\HRule %\\[1.5cm]
 
 
 \vfill
@@ -220,7 +221,10 @@ Název&str.&čas&hráči&téma \hline
 
  \begin{tabular}[t]{|p{4cm}|p{4cm}    |}
  \hline
+ \multicolumn{2}{|c|}{ } \\
  \multicolumn{2}{|c|}{\large{Zápas}} \\
+ \multicolumn{2}{|c|}{ } \\
+ 
   \hline
 Rozhodčí:  & Konferenciér: \\
  \hline
