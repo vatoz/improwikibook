@@ -5,7 +5,7 @@ define("CZK",
 define("TEXTUAL","[[:alnum:][:space:]\/".CZK."\.\:\&\(\)-,!-]");
 function preg_mediawiki($text){
 //$text=" [[pokus]]ný [[králík]] [[voda|vodník]]";
-preg_match_all("~\[[\[]{0,1}([[:alnum:][:space:]\,\/\.\-\(\)\:\_\=\?".CZK."\#]+)([\|]{1,1}[[:alnum:][:space:]\(\)".CZK."]*){0,1}\][\]]{0,1}([[:alnum:]".CZK."]*)~",$text,$results);
+preg_match_all("~\[[\[]{0,1}([[:alnum:][:space:]\,\/\.\-\(\)\:\_\=\?\+".CZK."\#]+)([\|]{1,1}[[:alnum:][:space:]\,\(\)".CZK."]*){0,1}\][\]]{0,1}([[:alnum:]".CZK."]*)~",$text,$results);
 //
 return ($results);
 }
@@ -43,11 +43,13 @@ $t=preg_replace("~\<(references)[[:space:]]{0,10}\/\>~"," ",$t);
 
 
 $t=preg_replace("~\<ref[[:space:]]{0,10}\>~","\\footnote{",$t);
+$t=preg_replace("~\^~","\^{}",$t);
 $t=preg_replace("~\<\/ref[[:space:]]{0,10}\>~",'}',$t);
 
 $t=preg_replace("~\" ~","\"{} ",$t);//mezera za uvozovkami
 $t=str_replace("[[Image:Hlasovani.jpg|right|thumb|250px|Diváci hlasují kartičkami]]","",$t);
-
+$t=str_replace("[[Soubor:Beyond-belief-frakes.png|thumb|\"Vizuál seriálu Věřte, Nevěřte\"]]","",$t);
+$t=str_replace("[https://cs.wikipedia.org/wiki/V%C4%9B%C5%99te_nev%C4%9B%C5%99te  Věřte, Nevěřte]","Věřte, nevěřte",$t);
 
 
 return $t;	
@@ -86,7 +88,10 @@ if(isset($a[0])){
 				}elseif(str_starts($href,"http")){//todo protože : nemůžu zpracovávat v hlavním bloku
 					$s=strpos($href," ");
 					$result.="\\textbf{".substr($href,$s+1)."}";
-					//odebrán http odkaz
+				}elseif(str_starts($href,"https")){//todo protože : nemůžu zpracovávat v hlavním bloku
+					$s=strpos($href," ");
+					$result.="\\textbf{".substr($href,$s+1)."}";
+				
 				}elseif(str_starts($href,"Image:")){
 						$result.="\obrazekmaly{".substr($href,6)."}";
 						

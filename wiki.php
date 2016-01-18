@@ -16,7 +16,7 @@ $t=rep_link($t);
 $t=rep_something($t);	
 	
 	//todo
-//$t= str_replace("#","Q",$t);
+$t= str_replace("%","\%{}",$t);
 //$t= str_replace("|","i",$t);
 //$t= str_replace("_","u",$t);
 //$t= str_replace("&","a",$t);
