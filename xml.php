@@ -43,9 +43,9 @@ function load_list($url){
 
 $seznam="";
 $urls=array(
-"http://wiki.improliga.cz/wiki/Speci%C3%A1ln%C3%AD:V%C5%A1echny_str%C3%A1nky",
-"http://wiki.improliga.cz/index.php?title=Speci%C3%A1ln%C3%AD:V%C5%A1echny_str%C3%A1nky&namespace=2",
-"http://wiki.improliga.cz/index.php?title=Speci%C3%A1ln%C3%AD:V%C5%A1echny_str%C3%A1nky&namespace=14",
+"https://wiki.improliga.cz/wiki/Speci%C3%A1ln%C3%AD:V%C5%A1echny_str%C3%A1nky",
+"https://wiki.improliga.cz/index.php?title=Speci%C3%A1ln%C3%AD:V%C5%A1echny_str%C3%A1nky&namespace=2",
+"https://wiki.improliga.cz/index.php?title=Speci%C3%A1ln%C3%AD:V%C5%A1echny_str%C3%A1nky&namespace=14",
 	
 );
 
@@ -55,7 +55,7 @@ foreach($urls as $url){
 file_put_contents("seznam.txt",$seznam);
 
 //set POST variables
-$url = 'http://wiki.improliga.cz/index.php?title=Speci%C3%A1ln%C3%AD:Exportovat_str%C3%A1nky&amp;action=submit';
+$url = 'https://wiki.improliga.cz/index.php?title=Speci%C3%A1ln%C3%AD:Exportovat_str%C3%A1nky&amp;action=submit';
 
 $fields = array();
 $fields["pages"]=urlencode($seznam);
