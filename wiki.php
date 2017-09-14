@@ -242,6 +242,7 @@ PutArrData(array('Longforma'),"longforma.tex");
 
 $TRANSPOSE=false;
 
+PutArrData(array('Manuál pomocného rozhodčího','Manuál konferenciéra','Manuál hráče','Manuál rozhodčího'),"manual.tex");
 
 unset($articles["Kategorie:Krátké formy"]);
 unset($articles["Kategorie:Žánry"]);
