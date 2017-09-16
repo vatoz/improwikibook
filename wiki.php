@@ -274,6 +274,7 @@ unset($articles["Kategorie:Cvičení v kruhu"]);
 unset($articles["Julyen Hamilton"]);
 unset($articles["Nátlak"]);
 unset($articles["Hlavní strana"]);
+unset($articles["Sedm slov"]);
 
 
 $data["books"][]="Literatura";	
