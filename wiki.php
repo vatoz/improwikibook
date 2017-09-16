@@ -84,6 +84,11 @@ ob_end_clean();
 
 	return "";
 }
+elseif(strpos($trimrow,"Redirect")!==false){
+ob_end_clean();
+
+	return "";
+}
 
 elseif(strpos($trimrow,"PŘESMĚRUJ")!==false){
 ob_end_clean();
