@@ -36,7 +36,7 @@ function load_list($url){
 	$p_start= strpos($data,'<td class="mw-allpages-nav">');
 	$p_end=strpos($data,'<div class="printfooter">',$p_start);
 	$data=substr($data,$p_start,$p_end -$p_start);
-	preg_match_all("~\>([[:alnum:]\ \_\(\)\-\&\:\,\/".CZK."]*)\<~",$data,$result);
+	preg_match_all("~\>([[:alnum:]\ \_\(\)\-\&\:\,\/\.".CZK."]*)\<~",$data,$result);
 
 	return implode ("\n",$result[1]);	
 }
