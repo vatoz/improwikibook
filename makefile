@@ -41,10 +41,9 @@ clean:
 	rm boxtable.tex
 	rm priprava.tex
 	rm rozcvickyshort.tex
-	rm logo.png
 	rm longformy.tex
 	rm longformy.tex
-	
+	rm manual.tex	
 xml:
 	-rm wiki.xml
 	php xml.php
