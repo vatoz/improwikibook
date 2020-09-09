@@ -13,7 +13,7 @@ pexeso:
 	- pdflatex -interaction=nonstopmode  pexeso.tex
 
 
-	
+
 clean:
 	rm cviceni.tex
 	rm fauly.tex
@@ -43,7 +43,8 @@ clean:
 	rm rozcvickyshort.tex
 	rm longformy.tex
 	rm longformy.tex
-	rm manual.tex	
+	rm manual.tex
+	rm stavba.tex
 xml:
 	-rm wiki.xml
 	php xml.php

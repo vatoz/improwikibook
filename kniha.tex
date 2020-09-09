@@ -6,6 +6,7 @@
 \usepackage{longtable}
 \usepackage{needspace}
 \usepackage{titlesec}
+
 \title{ImproWiki}
 \author{wiki.improliga.cz pod licencí Creative Commons Uveďte autora}
 \makeatletter
@@ -28,7 +29,7 @@
 
 \newcommand{\todo}[1]{
 
-TODO: \textbf{#1} 
+TODO: \textbf{#1}
 
 }
 
@@ -38,11 +39,12 @@ TODO: \textbf{#1}
 \newcommand{\katabox}[3]{
 \begin{wrapfigure}{R}{5.3cm}
 \begin{tabular}[t]{r|p{4cm}}
-\textbf{Téma}&\p{#1} \\ 
+\textbf{Téma}&\p{#1} \\
 \textbf{Hráči}&\p{#2} \\
 \textbf{Čas}&\p{#3} \\
 \end{tabular}
-\end{wrapfigure}}
+\end{wrapfigure}
+}
 
 \newcommand{\faulbox}[3]{
 
@@ -50,10 +52,10 @@ TODO: \textbf{#1}
 #1
 \end{wrapfigure}
 
-\textbf{Gesto:}\p{#2} 
+\textbf{Gesto:}\p{#2}
 
 
-\textbf{Trestné body:}\p{#3} 
+\textbf{Trestné body:}\p{#3}
 
 
 }
@@ -69,7 +71,7 @@ TODO: \textbf{#1}
 \includegraphics[width=1.8cm]{#1}}
 
 
-\newcommand{\odkaz}[2]{\textbf{#1}\textsuperscript{s.~\pageref{#2}}} 
+\newcommand{\odkaz}[2]{\textbf{#1}\textsuperscript{s.~\pageref{#2}}}
 
 %\footnote{\textbf{#2}, strana \pageref{#2} }
 
@@ -91,10 +93,10 @@ TODO: \textbf{#1}
 \textsc{\Large wiki.improliga.cz pod licencí Creative Commons Uveďte autora }\\[0.5cm]
 
 % Title
-\HRule %[0.4cm]
+%\HRule [0.4cm]
 { \huge \bfseries ImproWiki \\[0.4cm] }
 
-\HRule %\\[1.5cm]
+%\HRule %\\[1.5cm]
 
 
 \vfill
@@ -108,10 +110,10 @@ TODO: \textbf{#1}
 
 
 \end{titlepage}
- 
+
 \chapter{Úvod}\label{úvod}
 
-\input{uvod} 
+\input{uvod}
 
 Oproti verzi dostupné na internetu zde chybí odkazy na videa a další internetové zdroje.
 
@@ -121,7 +123,7 @@ Tučně vysázená \odkaz{hesla}{úvod} říkají, na které straně se o daném
 
 Některé termíny ještě nejsou popsané, přihlašte se na http://wiki.improliga.cz/ a dopište je.
 
-\textbf{Varování:} Nikdo se ještě nenaučil improvizovat z knížky. Popis kategorí je určen spíše zkušeným hráčům pro připomenutí, než nováčkům na naučení se.  
+\textbf{Varování:} Nikdo se ještě nenaučil improvizovat z knížky. Popis kategorí je určen spíše zkušeným hráčům pro připomenutí, než nováčkům na naučení se.
 
 \LaTeX{} sazbu připravuje  \odkaz{Václav Černý}{uživatel:vatoz}.
 
@@ -173,8 +175,8 @@ Tyto kategorie bývají hrány na improshow.
 \chapter{Fauly}\label{fauly}
 
 \label{:kategorie:fauly}
-\input{fauly_start} 
-\input{fauly} 
+\input{fauly_start}
+\input{fauly}
 
 \chapter{Terminologie}\label{terminologie}
 \label{:kategorie:terminologie}
@@ -183,6 +185,9 @@ Tyto kategorie bývají hrány na improshow.
 \chapter{Příběh}
 \input{pribeh_start}
 \input{pribeh}
+
+\chapter{Stavba scény}
+\input{stavba}
 
 
 \chapter{Longformy}\label{longformy}
@@ -207,8 +212,8 @@ Tyto kategorie bývají hrány na improshow.
 \ifx Z#6 \textbf{#1} \else #1 \small{  (i)} \fi   & \pageref{#2} &  \small{#3} & \small{#4} & \small{#5}\hline
 }
 \begin{longtable}{|p{4cm}|p{.4cm}|p{3.2cm}|p{3cm}|p{4.2cm}|}
-\hline 
-Název&str.&čas&hráči&téma \hline 
+\hline
+Název&str.&čas&hráči&téma \hline
 \input{boxtable}
 
 \end{longtable}
@@ -216,7 +221,7 @@ Název&str.&čas&hráči&téma \hline
 \renewcommand{\btbinfo}[6]{
 \ifx Z#6 #1   \fi
 
-} 
+}
 \begin{multicols}{3}
  \begin{tabular}[t]{|p{25mm}|p{25mm}    |}
  \hline
@@ -242,7 +247,7 @@ Body:  & Body: \\ \hline
 \input{boxtable}
 \end {multicols}
 \renewcommand{\btbinfo}[6]{
-\ifx Z#6  \else 
+\ifx Z#6  \else
 \large{#1 }
 
   \fi
@@ -275,4 +280,5 @@ Body:  & Body: \\ \hline
 \pagebreak
 \setcounter{tocdepth}{1}
 \tableofcontents
+
 \end{document}

@@ -11,7 +11,7 @@ define("CZK",
 //<input name="curonly" type="checkbox" value="1" checked="checked" id="curonly" />&#160;<label for="curonly">Zahrnout jen současnou verzi, ne plnou historii</label><br />
 //<input name="templates" type="checkbox" value="1" id="wpExportTemplates" />&#160;<label for="wpExportTemplates">Zahrnout šablony</label><br />
 //<input name="wpDownload" type="checkbox" value="1" checked="checked" id="wpDownload" />&#160;<label for="wpDownload">Nabídnout uložení jako soubor</label><br />
-//<input type="submit" value="Exportovat" title="[s]" accesskey="s" /></form></div>	
+//<input type="submit" value="Exportovat" title="[s]" accesskey="s" /></form></div>
 
 
 
@@ -28,17 +28,18 @@ function load_list($url){
 	ob_start();
 	$result = curl_exec($ch);
 
-	
+
 
 	$data= ob_get_contents();
 	curl_close($ch);
 	ob_end_clean();
+
 	$p_start= strpos($data,'<td class="mw-allpages-nav">');
 	$p_end=strpos($data,'<div class="printfooter">',$p_start);
 	$data=substr($data,$p_start,$p_end -$p_start);
 	preg_match_all("~\>([[:alnum:]\ \_\(\)\-\&\:\,\/\.".CZK."]*)\<~",$data,$result);
 
-	return implode ("\n",$result[1]);	
+	return implode ("\n",$result[1]);
 }
 
 $seznam="";
@@ -46,11 +47,11 @@ $urls=array(
 "https://wiki.improliga.cz/wiki/Speci%C3%A1ln%C3%AD:V%C5%A1echny_str%C3%A1nky",
 "https://wiki.improliga.cz/index.php?title=Speci%C3%A1ln%C3%AD:V%C5%A1echny_str%C3%A1nky&namespace=2",
 "https://wiki.improliga.cz/index.php?title=Speci%C3%A1ln%C3%AD:V%C5%A1echny_str%C3%A1nky&namespace=14",
-	
+
 );
 
 foreach($urls as $url){
-	$seznam.="\n".load_list ($url);	
+	$seznam.="\n".load_list ($url);
 }
 file_put_contents("seznam.txt",$seznam);
 
@@ -62,7 +63,7 @@ $fields["pages"]=urlencode($seznam);
 $fields["curonly"]="checked";
 $fields["wpDownload"]="checked";
 
-			
+
 $fields_string="";
 //url-ify the data for the POST
 foreach($fields as $key=>$value) { $fields_string .= $key.'='.$value.'&'; }

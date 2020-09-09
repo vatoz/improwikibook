@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html >
 <head>
-<meta charset="UTF-8">     
+<meta charset="UTF-8">
     <title>Wikiconvert</title>
     </head><body>
 <pre>
@@ -12,9 +12,9 @@ include "preg.php";
 $TRANSPOSE=false;
 function safe($t){
 
-$t=rep_link($t);	
-$t=rep_something($t);	
-	
+$t=rep_link($t);
+$t=rep_something($t);
+
 	//todo
 $t= str_replace("%","\%{}",$t);
 //$t= str_replace("|","i",$t);
@@ -53,7 +53,7 @@ elseif(substr($trimrow,0,4)=="===="){
   if($TRANSPOSE){
 	  echo "\subsection{".safe(substr($trimrow,3,-3)  )."} ";
 
-	  
+
 	  }else{
   echo "\subsubsection{".safe(substr($trimrow,3,-3)  )."} ";
 }
@@ -65,20 +65,20 @@ elseif(substr($trimrow,0,2)=="=="){
   echo "\section{".safe(substr($trimrow,2,-2)  )."} ";
 	}else{
 	echo "\subsection{".safe(substr($trimrow,2,-2)  )."} ";
-		
-		
+
+
 		}}
-		
+
 elseif(substr($trimrow,0,1)=="="){
   echo $lastrow;$lastrow="";
   if($TRANSPOSE){
   echo "\section{".safe(substr($trimrow,1,-1)  )."} ";
 	}else{
 	echo "\subsection{".safe(substr($trimrow,1,-1)  )."} ";
-		
-		
+
+
 		}}
-		
+
 elseif(strpos($trimrow,"REDIRECT")!==false){
 ob_end_clean();
 
@@ -101,7 +101,7 @@ if($lastrow!= "\\end{enumerate}\n"){
   echo "\\begin{enumerate}\n";
 }
 
-echo "\\item ".safe( substr($trimrow,1))  ."\n";  
+echo "\\item ".safe( substr($trimrow,1))  ."\n";
 $lastrow="\\end{enumerate}\n";
 }
 
@@ -110,10 +110,10 @@ if($lastrow!= "\\end{itemize}\n"){
   echo $lastrow;$lastrow="";
   echo "\\begin{itemize}\n";
 }
-echo "\\item ".safe( substr($trimrow,1))  ."\n";  
+echo "\\item ".safe( substr($trimrow,1))  ."\n";
 $lastrow="\\end{itemize}\n";
 
-}else{ 
+}else{
   echo $lastrow;$lastrow="";
   echo safe($row)." \n";
 }
@@ -137,7 +137,7 @@ echo sablony($result,$title);
 if (!file_exists("wiki.xml")) include "xml.php";
 
 
-$a= simplexml_load_file("wiki.xml"); 
+$a= simplexml_load_file("wiki.xml");
 
 $articles=array();
 echo "simple _done ";
@@ -155,14 +155,14 @@ $defz=array(
   "pribeh"=>"{{Fáze příběhu}}",
   "fauly"=>"[[Kategorie:Fauly]]",
   "postavy"=>"[[Kategorie:Postavy]]",
-  
+
   "terminologie"=>"[[Kategorie:Terminologie]]",
   "rozcvicky"=>"[[Kategorie:Rozcvičky]]",
   "cviceni"=>"[[Kategorie:Cvičení]]",
   'zpivane'=>"[[Kategorie:Zpívané kategorie]]",
   'warmup'=>"[[Kategorie:Warm-up]]",
   'porovnavaci'=>"[[Kategorie:Porovnávací kategorie]]",
-  
+
 );
 
 
@@ -179,11 +179,11 @@ foreach ($a->page as $Page){
  foreach($defz as $r=>$k){
   if(stripos("  ".$Page->revision->text[0],$k    )){
   $data[$r][]=trim($Page->title);
-  
+
   //break;
   }
 
-} 
+}
 
 //$articles[trim($Page->title)]= $Page->revision->text[0];
 
@@ -196,7 +196,7 @@ $t.= "\item  \odkaz{".$Key."}{".mb_strtolower($Key,"UTF-8") ."} \n";
 }
 $t.="\\end{itemize}\n";
 return $t;
-	
+
 	}
 $articles["Zpívané kategorie"]="\label{:kategorie:zpívané kategorie}".
 $articles["Kategorie:Zpívané kategorie"]
@@ -218,7 +218,7 @@ unset($data["warmup"]);
 function PutArrData($Seznam,$file){
   global $articles;
 
-ob_start();  
+ob_start();
 foreach($Seznam as $Row){
 	if(isset($articles[$Row])){
   MediaWiki2Latex($Row,$articles[$Row]);
@@ -226,7 +226,7 @@ foreach($Seznam as $Row){
 }
 file_put_contents($file,ob_get_contents());
 ob_end_clean();
-echo "File: ".$file." saved\n"; 
+echo "File: ".$file." saved\n";
 }
 
 $d=strpos($articles["Kategorie"],"== Kam");
@@ -234,7 +234,7 @@ if($d>20){
 	$articles["Kategorie"]=substr($articles["Kategorie"],0,$d);
 }
 
-$TRANSPOSE=true;	
+$TRANSPOSE=true;
 PutArrData(array('Zápas'),"zapas.tex");
 PutArrData(array('ImproWiki'),"uvod.tex");
 PutArrData(array('Kategorie' ,'Kategorie:Zápasové kategorie'),"kategorie_start.tex");
@@ -248,6 +248,9 @@ PutArrData(array('Longforma'),"longforma.tex");
 $TRANSPOSE=false;
 
 PutArrData(array('Manuál pomocného rozhodčího','Manuál konferenciéra','Manuál hráče','Manuál rozhodčího'),"manual.tex");
+PutArrData(array('Improvizační trojzubec','5 otázek','CROW'),"stavba.tex");
+
+
 
 unset($articles["Kategorie:Krátké formy"]);
 unset($articles["Kategorie:Žánry"]);
@@ -277,14 +280,14 @@ unset($articles["Hlavní strana"]);
 unset($articles["Sedm slov"]);
 
 
-$data["books"][]="Literatura";	
-$data["books"][]="Improknihovnička";	
+$data["books"][]="Literatura";
+$data["books"][]="Improknihovnička";
 $data["authors"][]="Uživatel:VandaGabi";
-$data["authors"][]="Uživatel:Just-paja";	
-$data["authors"][]="Uživatel:Vatoz";	
+$data["authors"][]="Uživatel:Just-paja";
+$data["authors"][]="Uživatel:Vatoz";
 $data["authors"][]="Uživatel:VojtechKopta";
 
-$zapas=$data["kategoriez"];	
+$zapas=$data["kategoriez"];
 
 
 PutArrData (array("Expozice","Kolize","Krize","Peripetie","Katastrofa","Katarze"),"pribeh.tex"); //Custom řazení
@@ -294,7 +297,7 @@ foreach ($data as $r=>$nonsense){
 	"try ".$r." <br>";
 	$t=$data[$r];
 	asort($t,SORT_LOCALE_STRING);//todo
-  PutArrData($t, $r.'.tex'  );  
+  PutArrData($t, $r.'.tex'  );
 }
 
 //var_export(array_keys($articles));
@@ -309,10 +312,10 @@ foreach($data as $Key=>$Row){
 	foreach($keys as $subkey){
 	echo "{";
 	echo $Row[$subkey];
-	echo "}";	
+	echo "}";
 	}
 	echo "\n";
-	
+
 	}
 	file_put_contents($filename,ob_get_contents());
 	ob_end_clean();
@@ -329,8 +332,8 @@ ksort($kategorie_boxtable,SORT_LOCALE_STRING);
 save_table("boxtable.tex",$kategorie_boxtable,"btbinfo",array("cas","hraci","tema","zapasova"));
 save_table("faultable.tex",$faultable,"faulinfo",array("body","obrazek","gesto"));
 
-$r=$data["rozcvicky"]; 
-foreach($r as $key=>$value){ 
+$r=$data["rozcvicky"];
+foreach($r as $key=>$value){
 
 if(in_array($value,array_keys($kategorie_boxtable
 ))) {
@@ -344,7 +347,3 @@ if(in_array($value,array_keys($kategorie_boxtable
 
 $r="\\large{".implode ("}\n\n\\large{",$r)."}";
 file_put_contents("rozcvickyshort.tex",$r);
-
-
-
-
