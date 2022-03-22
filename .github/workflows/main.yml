@@ -28,7 +28,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Install TeXlive
-        run: sudo apt-get install texlive texlive-publishers texlive-science latexmk cm-super
+        run: sudo apt-get install texlive texlive-publishers texlive-science latexmk cm-super texlive-lang-czechslovak
       - name: Install PHP
         run: sudo apt-get install php make
       - name: Use locale
