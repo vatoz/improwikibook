@@ -13,7 +13,10 @@
 # To compile multiple papers, duplicate the job called "paper" with different FILE/DIR names and add the "needs" line in the "deploy" job accordingly  
 
 name: compile_deploy_latex
-on: [push]
+on:
+  push
+  schedule:
+      - cron: '0 10 * * 1' # V pondeli
 jobs:
   paper:
     runs-on: ubuntu-latest
