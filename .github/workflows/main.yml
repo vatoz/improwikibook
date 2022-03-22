@@ -20,14 +20,14 @@ jobs:
     env:
       # Edit here with the names of your latex file and directory (can use ".")
       DIR: .
-      FILE: kniha.
+      FILE: kniha
     steps:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Install TeXlive
         run: sudo apt-get install texlive texlive-publishers texlive-science latexmk cm-super
       - name: Install PHP
-        run: sudo apt-get install php
+        run: sudo apt-get install php make
       - name: Get XML
         working-directory: ${{ env.DIR }}
         run: php xml.php
@@ -36,7 +36,7 @@ jobs:
         run: php wiki.php
       - name: LaTeX compile
         working-directory: ${{ env.DIR }}
-        run: latexmk -pdf -bibtex ${{ env.FILE }}
+        run: make all
       - name: move
         run: mkdir -p github_artifacts && mv ${{ env.DIR }}/${{ env.FILE }}.pdf ./github_artifacts/
       - name: Upload pdf as artifact
