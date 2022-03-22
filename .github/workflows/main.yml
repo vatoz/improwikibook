@@ -14,7 +14,7 @@
 
 name: compile_deploy_latex
 on:
-  push
+  push:
   schedule:
       - cron: '0 10 * * 1' # V pondeli
 jobs:
