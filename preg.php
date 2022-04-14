@@ -16,10 +16,13 @@ function str_starts($haystack,$needle){
 	}
 function rep_something($t){
 //věci co mají být tučně, poslední uvozovky jsou tu proto, aby se nepolykaly mezery
-$t=preg_replace("~'''(".TEXTUAL."{1,40})'''~",'\\textbf{$1}',$t);
+$t=preg_replace("~'''(".TEXTUAL."{1,45})'''~",'\\textbf{$1}',$t);
 $t=preg_replace("~''(".TEXTUAL."{1,40})''~",'\\textit{$1}',$t);
 
 $t=preg_replace("~\[\[Kategorie:[[:alnum:][:space:]".CZK."]+\]\]~",'',$t);
+//$t=preg_replace("~'''(".TEXTUAL."{1,40})\\odkaz\{(".TEXTUAL."{1,40})\}\{(".TEXTUAL."{1,40})\}(".TEXTUAL."{1,40})'''~",'Ňuf',$t);
+$t=preg_replace("~'''(".TEXTUAL."{1,40})\\\\odkaz\{(".TEXTUAL."{1,40})\}\{(".TEXTUAL."{1,40})\}(".TEXTUAL."{1,40})'''(".TEXTUAL."{1,40})~",'\\textbf{$1\\odkaz{$3}{$2}$4}$5',$t);
+//'''Hrát v [[Hudební nálady|náladě]], která se hodí''' nebo aspoň neodporuje
 
 //todo vylepšit odkaz na titulní stránky kategorií , asi samostatnou fcí.
 $t=preg_replace("~\[\[:Kategorie:([[:alnum:][:space:]".CZK."]+)\|([[:alnum:][:space:]".CZK."]+)\]\]~",'\\textbf{$2}',$t);
