@@ -39,9 +39,6 @@ jobs:
       - name: Get XML
         working-directory: ${{ env.DIR }}
         run: php xml.php
-      - name: Prepare text
-        working-directory: ${{ env.DIR }}
-        run: php wiki.php
       - name: LaTeX compile
         working-directory: ${{ env.DIR }}
         run: make all
