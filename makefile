@@ -1,6 +1,11 @@
 
 all:
 	php wiki.php
+	vlna cviceni.tex fauly.tex kategoriez.tex pribeh.tex  rozcvicky.tex  terminologie.tex  
+	vlna zapas.tex  zbytek.tex  kategoriei.tex  books.tex  authors.tex  postavy.tex
+	vlna  faultable.tex  fauly_start.tex m pribeh_start.tex  rozcvicky_start.tex 
+	vlna predzapasovy.tex  uvod.tex kategorie_start.tex  boxtable.tex kniha.tex
+	vlna priprava.tex rozcvickyshort.tex longformy.tex longformy.tex manual.tex stavba.tex
 	- pdflatex -interaction=nonstopmode  kniha.tex
 	- pdflatex -interaction=nonstopmode  kniha.tex
 	- pdflatex -interaction=nonstopmode  kniha.tex
@@ -8,9 +13,6 @@ all:
 draft:
 	php wiki.php
 	- pdflatex -interaction=nonstopmode  kniha.tex
-pexeso:
-	php wiki.php
-	- pdflatex -interaction=nonstopmode  pexeso.tex
 
 
 
