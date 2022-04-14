@@ -49,6 +49,7 @@ $t=preg_replace("~\<ref[[:space:]]{0,10}\>~","\\footnote{",$t);
 $t=preg_replace("~\^~","\^{}",$t);
 $t=preg_replace("~\<\/ref[[:space:]]{0,10}\>~",'}',$t);
 
+$t=preg_replace("~\"(".TEXTUAL."{1,40})\"~",'\\uv{$1} ',$t);
 $t=preg_replace("~\" ~","\"{} ",$t);//mezera za uvozovkami
 $t=str_replace("[[Image:Hlasovani.jpg|right|thumb|250px|Diváci hlasují kartičkami]]","",$t);
 $t=str_replace("[[Soubor:Beyond-belief-frakes.png|thumb|\"Vizuál seriálu Věřte, Nevěřte\"]]","",$t);
