@@ -30,6 +30,7 @@ $t=preg_replace("~\[\[:Kategorie:([[:alnum:][:space:]".CZK."]+)\|([[:alnum:][:sp
 
 $t=preg_replace("~\[\[Image\:([[:alnum:]\_\-]*)\.png[\|[:alnum:][:space:]".CZK."]*\|([[:alnum:][:space:]".CZK."\,]*)\]\]~",'\\obrazek{$1}{$2}',$t);
 $t=preg_replace("~\[\[image\:([[:alnum:]\_\-]*)\.png[\|[:alnum:][:space:]".CZK."]*\|([[:alnum:][:space:]".CZK."\,]*)\]\]~",'\\obrazek{$1}{$2}',$t);
+$t=str_replace("\obrazekmaly{Cas.png}","\obrazek{Cas.png}{}",$t);
 
 
 //$t=preg_replace("~ ([szvkai]{1,1}) ~",' $1~',$t);
