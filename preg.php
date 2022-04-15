@@ -51,12 +51,18 @@ $t=preg_replace("~\<\/ref[[:space:]]{0,10}\>~",'}',$t);
 
 $t=preg_replace("~\"(".TEXTUAL."{1,40})\"~",'\\uv{$1} ',$t);
 $t=preg_replace("~\" ~","\"{} ",$t);//mezera za uvozovkami
+
 $t=str_replace("[[Image:Hlasovani.jpg|right|thumb|250px|Diváci hlasují kartičkami]]","",$t);
 $t=str_replace("Seznam forem naleznete v \\odkaz{kategorii Formy}{:kategorie:formy}.","",$t);
+$t=str_replace("([https://www.youtube.com/watch?v=BPFKMco8AL0&list=PLKPYI9ACDonB7jrbv_eAPdJpQVgbjWoDZ&index=2 Chicago - All That Jazz])","",$t);
+$t=str_replace("(\textbf{Prokofiev - Dance of the Knights})","",$t);
+$t=str_replace("([https://www.youtube.com/watch?v=EBGvtkVVas0&index=1&list=PLKPYI9ACDonB7jrbv_eAPdJpQVgbjWoDZ Marilin Manson - Resident Evil])","",$t);
+$t=str_replace("{| class=\uv{wikitable}","", $t);//zasloužilo by si lepší ošetření
+
 $t=str_replace("\\odkaz{krátkých forem}{:kategorie:krátké formy}","krátkých forem",$t);
 $t=str_replace("\\odkaz{krátkých formách}{:kategorie:krátké formy}","krátkých forem",$t);
 
-$t=str_replace("[[Soubor:Beyond-belief-frakes.png|thumb|\"Vizuál seriálu Věřte, Nevěřte\"]]","",$t);
+$t=str_replace("[[Soubor:Beyond-belief-frakes.png|thumb|\\uv{Vizuál seriálu Věřte, Nevěřte} ]]","",$t);
 $t=str_replace("[https://cs.wikipedia.org/wiki/V%C4%9B%C5%99te_nev%C4%9B%C5%99te  Věřte, Nevěřte]","Věřte, nevěřte",$t);
 $t=str_replace("[[:Kategorie:Warm-up|warm-up]]","\\odkaz{warm-up}{warm-upy}",$t);
 
