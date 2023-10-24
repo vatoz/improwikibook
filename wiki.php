@@ -249,6 +249,7 @@ $TRANSPOSE=false;
 
 PutArrData(array('Manuál pomocného rozhodčího','Manuál konferenciéra','Manuál hráče','Manuál rozhodčího'),"manual.tex");
 PutArrData(array('Improvizační trojzubec','5 otázek','CROW'),"stavba.tex");
+PutArrData(array('Představení','Výuka improvizace'),"irl.tex");
 
 
 
