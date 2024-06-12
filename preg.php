@@ -55,6 +55,7 @@ $t=preg_replace("~\" ~","\"{} ",$t);//mezera za uvozovkami
 
 $t=str_replace("[[Image:Hlasovani.jpg|right|thumb|250px|Diváci hlasují kartičkami]]","",$t);
 $t=str_replace("Seznam forem naleznete v \\odkaz{kategorii Formy}{:kategorie:formy}.","",$t);
+$t=str_replace("V \odkaz{seznamu longforem}{:kategorie:longformy} se můžete podívat na seznam těch  zde zatím popsaných.","",$t);
 $t=str_replace("([https://www.youtube.com/watch?v=BPFKMco8AL0&list=PLKPYI9ACDonB7jrbv_eAPdJpQVgbjWoDZ&index=2 Chicago - All That Jazz])","",$t);
 $t=str_replace("(\textbf{Prokofiev - Dance of the Knights})","",$t);
 $t=str_replace("([https://www.youtube.com/watch?v=EBGvtkVVas0&index=1&list=PLKPYI9ACDonB7jrbv_eAPdJpQVgbjWoDZ Marilin Manson - Resident Evil])","",$t);
