@@ -27,13 +27,16 @@ function MediaWiki2Latex($title,$text){
 	global $TRANSPOSE;
 	ob_start();
 	echo "\\needspace{5cm} ";
+$allowhttp=false;
+if($title=="Inspirace") $allowhttp=true;
+if($title=="Literatura") $allowhttp=true;
 if (!$TRANSPOSE) echo "\section{".safe($title)."} ";
 echo "\label{".safe(mb_strtolower($title,"UTF-8"))."} ";
 $lastrow="";
 foreach (explode("\n",$text) as $row){
 $trimrow=trim($row);
 //echo "DEBUG".$trimrow;
-if(preg_match("~^[\*]{0,1}[[:space:]]{0,2}[\[]{0,1}http[s]{0,1}\:~",$trimrow)){
+if(preg_match("~^[\*]{0,1}[[:space:]]{0,2}[\[]{0,1}http[s]{0,1}\:~",$trimrow)&&!$allowhttp){
 	//ignore youtube videos and internet hrefs
 }
 elseif(preg_match("~\=\=[[:space:]]{0,2}(Ukázková videa|Videa|Externí odkazy|Reference|Ukázky|Externí zdroje)[[:space:]]{0,2}\=\=~",$trimrow)){
