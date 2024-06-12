@@ -299,6 +299,10 @@ $zapas=$data["kategoriez"];
 PutArrData (array("Expozice","Kolize","Krize","Peripetie","Katastrofa","Katarze"),"pribeh.tex"); //Custom řazení
 unset($data["pribeh"]);
 
+PutArrData (array("Inspirace","Literatura","Improknihovnička"),"books.tex"); //Custom řazení
+unset($data["books"]);
+
+
 foreach ($data as $r=>$nonsense){
 	"try ".$r." <br>";
 	$t=$data[$r];
