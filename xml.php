@@ -23,6 +23,10 @@ function load_list($url){
 	curl_setopt($ch,CURLOPT_URL, $url);
 	//curl_setopt($ch,CURLOPT_POST, count($fields));
 	//curl_setopt($ch,CURLOPT_POSTFIELDS, $fields_string);
+	// Ignore SSL Certificate errors
+	curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+
 
 	//execute post
 	ob_start();
