@@ -1,0 +1,288 @@
+\documentclass[a4paper,10pt,openany]{book}
+\usepackage[utf8]{inputenc}
+\usepackage[czech]{babel}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{longtable}
+\usepackage{needspace}
+\usepackage{titlesec}
+
+\title{ImproWiki}
+\author{wiki.improliga.cz pod licencí Creative Commons Uveďte autora}
+\makeatletter
+\renewcommand\thesection{}
+\renewcommand\thesubsection{}
+\makeatother
+\usepackage[margin=1.5cm]{geometry}
+\usepackage{tgpagella}
+\usepackage{multicol}
+
+\usepackage[T1]{fontenc}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LO,LE]{\today}
+\fancyhead[CE,CO]{wiki.improliga.cz}
+\fancyhead[RE,RO]{\thepage}
+
+
+
+\newcommand{\todo}[1]{
+
+TODO: \textbf{#1}
+
+}
+
+\setlength{\intextsep}{0pt}
+
+
+\newcommand{\katabox}[3]{
+\begin{wrapfigure}{R}{5.3cm}
+\begin{tabular}[t]{r|p{4cm}}
+\textbf{Téma}&\p{#1} \\
+\textbf{Hráči}&\p{#2} \\
+\textbf{Čas}&\p{#3} \\
+\end{tabular}
+\end{wrapfigure}
+}
+
+\newcommand{\faulbox}[3]{
+
+\begin{wrapfigure}{L}{0}
+#1
+\end{wrapfigure}
+
+\textbf{Gesto:}\p{#2}
+
+
+\textbf{Trestné body:}\p{#3}
+
+
+}
+
+
+\newcommand{\obrazek}[2]{
+\includegraphics[width=4cm]{#1}
+
+\textbf{#2}}
+
+
+\newcommand{\obrazekmaly}[1]{
+\includegraphics[width=1.8cm]{#1}}
+
+
+\newcommand{\odkaz}[2]{\textbf{#1}\textsuperscript{s.~\pageref{#2}}}
+
+%\footnote{\textbf{#2}, strana \pageref{#2} }
+
+\clubpenalty 10000
+\widowpenalty 10000
+
+
+\titlespacing*{\section}{-5mm}{4mm}{3mm}
+
+\begin{document}
+\hyphenation{pros-tře-dí-mi dvo-ji-ce-mi}
+\begin{titlepage}
+\begin{center}
+
+% Upper part of the page. The '~' is needed because \\
+% only works if a paragraph has started.
+\includegraphics[width=0.15\textwidth]{./improliga}~\\[5cm]
+
+\textsc{\Large wiki.improliga.cz pod licencí Creative Commons Uveďte autora }\\[0.5cm]
+
+% Title
+%\HRule [0.4cm]
+{ \huge \bfseries ImproWiki \\[0.4cm] }
+
+%\HRule %\\[1.5cm]
+
+
+\vfill
+
+% Bottom of the page
+{\large Vygenerováno \today}
+
+\end{center}
+
+
+
+
+\end{titlepage}
+
+
+\chapter{Úvod}\label{úvod}
+
+\input{uvod}
+
+Oproti verzi dostupné na internetu zde chybí odkazy na videa a další internetové zdroje.
+
+Aktuálnost a užitečnost tištěné verze (ani wiki) není zaručena, v~případě nejasností konzultujte se zkušenějším hráčem či s~improwiki.
+
+Tučně vysázená \odkaz{hesla}{úvod} říkají, na které straně se o~daném termínu dočtete víc.
+
+Některé termíny ještě nejsou popsané, přihlašte se na http://wiki.improliga.cz/ a dopište je.
+
+\textbf{Varování:} Nikdo se ještě nenaučil improvizovat z~knížky. Popis kategorí je určen spíše zkušeným hráčům pro připomenutí, než nováčkům na naučení se.
+
+\LaTeX{} sazbu připravuje  \odkaz{Václav Černý}{uživatel:vatoz}.
+
+Chyby či náměty na vylepšení konverze hlaste na https://github.com/vatoz/improwikibook/issues 
+
+Případné faktické chyby a překlepy můžete opravit přímo na improwiki (nebo říci Vaškovi).
+
+Jednou týdně se sazba automaticky generuje (pomocí Github Actions) a můžete si stáhnout aktuální verzi na https://github.com/vatoz/improwikibook/raw/build/kniha.pdf 
+
+\chapter{Na vlastní kůži}
+\input{irl}
+
+
+\chapter{Zápas}
+\input{zapas}
+
+\chapter{Postavy}
+\input{postavy}
+
+
+\chapter{Zápasové kategorie}
+\label{zápasové kategorie}
+\label{:kategorie:zápasové kategorie}
+\input{kategorie_start}
+\input{kategoriez}
+
+\chapter{Kategorie na improshow}\label{další kategorie}
+\label{:kategorie:kategorie na improshow}
+Tyto kategorie bývají hrány na improshow.
+\input{kategoriei}
+
+\chapter{Rozcvičky}\label{rozcvičky}
+\label{:kategorie:rozcvičky}
+
+\input{rozcvicky_start}
+\input{rozcvicky}
+
+
+\chapter{Příprava zápasu}
+\input{priprava}
+
+\chapter{Manuály}
+\input{manual}
+
+\chapter{Předzápasový trénink}
+\input{predzapasovy}
+
+\chapter{Cvičení}
+\input{cviceni}
+
+\chapter{Fauly}\label{fauly}
+
+\label{:kategorie:fauly}
+\input{fauly_start}
+\input{fauly}
+
+\chapter{Terminologie}\label{terminologie}
+\label{:kategorie:terminologie}
+\input{terminologie}
+
+\chapter{Příběh}
+\input{pribeh_start}
+\input{pribeh}
+
+\chapter{Stavba scény}
+\input{stavba}
+
+
+\chapter{Longformy}\label{longformy}
+\input{longforma}
+\input{longformy}
+
+
+\chapter{Zdroje}\label{knihy}
+\input{books}
+
+
+\chapter{Autoři}\label{autori}
+\input{authors}
+
+\chapter{Co se jinam nevešlo}\label{co se jinam nevešlo}
+\input{zbytek}
+
+\chapter{Bonusy}
+\pagebreak
+\newcommand{\btbinfo}[6]{
+
+\ifx Z#6 \textbf{#1} \else #1 \small{  (i)} \fi   & \pageref{#2} &  \small{#3} & \small{#4} & \small{#5}\hline
+}
+\begin{longtable}{|p{4cm}|p{.4cm}|p{3.2cm}|p{3cm}|p{4.2cm}|}
+\hline
+Název&str.&čas&hráči&téma \hline
+\input{boxtable}
+
+\end{longtable}
+\pagebreak
+\renewcommand{\btbinfo}[6]{
+\ifx Z#6 #1   \fi
+
+}
+\begin{multicols}{3}
+ \begin{tabular}[t]{|p{25mm}|p{25mm}    |}
+ \hline
+ \multicolumn{2}{|c|}{ } \\
+ \multicolumn{2}{|c|}{\large{Zápas}} \\
+ \multicolumn{2}{|c|}{ } \\
+\hline
+\multicolumn{2}{|l|}{ Rozhodčí: }   \\ \hline
+\multicolumn{2}{|l|}{ Konferenciér: }   \\ \hline
+\multicolumn{2}{|l|}{ Pomocňáci: }   \\ \hline
+\multicolumn{2}{|l|}{ Hudba: }   \\ \hline
+\multicolumn{2}{|l|}{ Světla: }   \\ \hline
+\multicolumn{2}{|l|}{ Organizace: }   \\ \hline
+\multicolumn{2}{|l|}{ Grafika: }   \\ \hline
+Tým: &  Tým:\\ \hline
+1. \small{(cpt)}  & 1.\small{(cpt)} \\ \hline
+2.  & 2. \\ \hline
+3. & 3. \\ \hline
+4.  & 4. \\ \hline
+Body:  & Body: \\ \hline
+
+\end{tabular}
+\vspace{3mm}
+\input{boxtable}
+\end {multicols}
+\renewcommand{\btbinfo}[6]{
+\ifx Z#6  \else
+\large{#1 }
+
+  \fi
+}
+\hline
+
+\begin{multicols}{3}
+\large{\textbf{Veřejné rozcvičky}}
+
+\input{rozcvickyshort}
+\end {multicols}
+\hline
+
+\begin{multicols}{3}
+\large{\textbf{Kategorie na improshow}}
+
+\input{boxtable}
+\end {multicols}
+
+
+\pagebreak
+\newcommand{\faulinfo}[5]{
+#4 & #1 & #3 & #5 \\
+
+}
+
+\begin{tabular}[t]{|p{3cm}|p{4cm}|p{1cm}|p{6cm}    |}
+\input{faultable}
+\end{tabular}
+\pagebreak
+\setcounter{tocdepth}{1}
+\tableofcontents
+
+\end{document}
