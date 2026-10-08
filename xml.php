@@ -38,7 +38,7 @@ function load_list($url){
 	curl_close($ch);
 	ob_end_clean();
 
-	$p_start= strpos($data,'<td class="mw-allpages-nav">');
+	$p_start= strpos($data,'<ul class="mw-allpages-chunk">');
 	$p_end=strpos($data,'<div class="printfooter">',$p_start);
 	$data=substr($data,$p_start,$p_end -$p_start);
 	preg_match_all("~\>([[:alnum:]\ \_\(\)\-\&\:\,\/\.".CZK."]*)\<~",$data,$result);
@@ -48,9 +48,9 @@ function load_list($url){
 
 $seznam="";
 $urls=array(
-"https://wiki.improliga.cz/wiki/Speci%C3%A1ln%C3%AD:V%C5%A1echny_str%C3%A1nky",
-"https://wiki.improliga.cz/index.php?title=Speci%C3%A1ln%C3%AD:V%C5%A1echny_str%C3%A1nky&namespace=2",
-"https://wiki.improliga.cz/index.php?title=Speci%C3%A1ln%C3%AD:V%C5%A1echny_str%C3%A1nky&namespace=14",
+"https://improwiki.cz/wiki/Speci%C3%A1ln%C3%AD:V%C5%A1echny_str%C3%A1nky",
+"https://improwiki.cz/index.php?title=Speci%C3%A1ln%C3%AD:V%C5%A1echny_str%C3%A1nky&namespace=2",
+"https://improwiki.cz/index.php?title=Speci%C3%A1ln%C3%AD:V%C5%A1echny_str%C3%A1nky&namespace=14",
 
 );
 
@@ -60,7 +60,7 @@ foreach($urls as $url){
 file_put_contents("seznam.txt",$seznam);
 
 //set POST variables
-$url = 'https://wiki.improliga.cz/index.php?title=Speci%C3%A1ln%C3%AD:Exportovat_str%C3%A1nky&amp;action=submit';
+$url = 'https://improwiki.cz/index.php?title=Speci%C3%A1ln%C3%AD:Exportovat_str%C3%A1nky&amp;action=submit';
 
 $fields = array();
 $fields["pages"]=urlencode($seznam);
